@@ -1,9 +1,11 @@
 package com.Pizza.classes;
 
+import java.util.Scanner;
+
 public abstract class Currency {
     private String currencyName;
     private Double amount;
-    private Double rate;
+    private static Double rate;
 
     Currency(){
 
@@ -28,10 +30,12 @@ public abstract class Currency {
     private void setRate(Double rate) {
         this.rate = rate;
     }
-
-    public Double getRate() {
+//static, want veranderd niet per geld soort
+    public static Double getRate() {
         return rate;
     }
 
     public abstract void currencyRegulator(Double withdraw);
+
+
 }
