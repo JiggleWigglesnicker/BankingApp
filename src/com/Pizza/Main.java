@@ -17,9 +17,9 @@ public class Main {
         BankAdmin admin = new BankAdmin(record);
 
         // Calling methods of objects
-        /*account1.addCurrency(euro1);
+        account1.addCurrency(euro1);
         account1.addCurrency(yen1);
-        account1.addCurrency(dollar1);*/
+        account1.addCurrency(dollar1);
         holder1.addAccount(account1);
         record.addHolder(holder1);
 

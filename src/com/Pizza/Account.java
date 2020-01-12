@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class Account {
     private String accountName;
-    private HashSet<Currency> multiCurrenciesList;
+    private HashSet<Currency> multiCurrenciesList = new HashSet<Currency>();
 
     public Account(String name){
         accountName = name;

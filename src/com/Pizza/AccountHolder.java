@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class AccountHolder {
     private String nameHolder;
-    private HashSet<Account> accountList;
+    private HashSet<Account> accountList = new HashSet<Account>();
 
     public AccountHolder(String name){
         nameHolder = name;

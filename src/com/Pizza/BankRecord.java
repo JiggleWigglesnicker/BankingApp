@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class BankRecord {
 
-    private HashSet<AccountHolder> accountHolderList;
+    private HashSet<AccountHolder> accountHolderList = new HashSet<AccountHolder>();
     private Double bankTotal;
 
     public BankRecord(){
