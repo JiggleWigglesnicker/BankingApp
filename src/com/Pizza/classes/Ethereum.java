@@ -13,8 +13,4 @@ public class Ethereum extends Currency implements CryptoRegulator {
         return virtualLimit;
     }
 
-    @Override
-    public void currencyRegulator(Double withdraw) {
-
-    }
 }

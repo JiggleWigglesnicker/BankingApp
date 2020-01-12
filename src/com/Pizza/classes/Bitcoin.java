@@ -8,11 +8,6 @@ public class Bitcoin extends Currency implements CryptoRegulator {
     }
 
     @Override
-    public void currencyRegulator(Double withdraw) {
-
-    }
-
-    @Override
     public void setCryptoLimit(Double limit) {
 
     }
