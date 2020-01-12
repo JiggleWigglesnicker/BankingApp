@@ -16,10 +16,11 @@ public class BankRecord {
     }
 
     public void addHolder(AccountHolder holder){
-
+        accountHolderList.add(holder);
     }
 
     public Double calcTotalCurrencies(){
-        return null;
+        //possible calc total amount of all accounts and store in bankTotal
+        return bankTotal;
     }
 }

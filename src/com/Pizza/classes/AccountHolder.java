@@ -19,6 +19,6 @@ public class AccountHolder {
     }
 
     public void addAccount(Account account){
-
+        accountList.add(account);
     }
 }
