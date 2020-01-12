@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Account {
     private String accountName;
     private HashSet<Currency> multiCurrenciesList;
-    private double tradeInRate;
-    private double tradeOutRate;
+
     Account(){
 
     }
