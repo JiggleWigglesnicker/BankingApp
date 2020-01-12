@@ -1,14 +1,14 @@
-package com.Pizza.classes;
+package com.Pizza;
 
 import java.util.HashSet;
-import java.util.Scanner;
+
 
 public class Account {
     private String accountName;
     private HashSet<Currency> multiCurrenciesList;
 
-    Account(){
-
+    public Account(String name){
+        accountName = name;
     }
 
     public String getAccountName(){
@@ -37,7 +37,7 @@ public class Account {
                 storedCurrencyToReceive = moneyObject2.getAmount();
             }
 
-            // in andere methode dit stukje voor gemakkelijker berekeningen
+            // TODO : in andere methode dit stukje voor gemakkelijker berekeningen
             Double tempAmount = fullAmount / moneyObject2.getRate();
             tempAmount = tempAmount * moneyObject1.getRate();
 

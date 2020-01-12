@@ -1,4 +1,4 @@
-package com.Pizza.classes;
+package com.Pizza;
 
 import java.util.HashSet;
 
@@ -6,8 +6,8 @@ public class AccountHolder {
     private String nameHolder;
     private HashSet<Account> accountList;
 
-    AccountHolder(){
-
+    public AccountHolder(String name){
+        nameHolder = name;
     }
 
     private String getHolderName(){

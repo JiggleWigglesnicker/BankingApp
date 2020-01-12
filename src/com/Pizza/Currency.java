@@ -1,12 +1,14 @@
-package com.Pizza.classes;
+package com.Pizza;
 
 public abstract class Currency {
     private String currencyName;
     private Double amount;
-    private static Double rate;
+    private Double rate;
 
-    Currency(){
-
+    Currency(String currencyName, Double amount, Double rate){
+        this.currencyName = currencyName;
+        this.amount = amount;
+        this.rate = rate;
     }
 
     public void setAmount(Double amount) {
