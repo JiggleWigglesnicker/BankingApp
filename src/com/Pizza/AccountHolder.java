@@ -60,6 +60,7 @@ public class AccountHolder {
 
     public void calcTotalAmountHolder(){
         addUpIndividualAccountCurrencies();
+        System.out.println(totalCurrencyList);
         Double totalAmount = 0.0;
         HashMap<String, Double> rateList = new HashMap<String,Double>();
         for(Account account : accountList){
