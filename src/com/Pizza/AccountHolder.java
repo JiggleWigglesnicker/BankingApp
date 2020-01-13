@@ -10,7 +10,7 @@ public class AccountHolder {
         nameHolder = name;
     }
 
-    private String getHolderName(){
+    public String getHolderName(){
         return nameHolder;
     }
 
@@ -20,5 +20,9 @@ public class AccountHolder {
 
     public void addAccount(Account account){
         accountList.add(account);
+    }
+
+    public double accountCount(){
+        return accountList.size();
     }
 }

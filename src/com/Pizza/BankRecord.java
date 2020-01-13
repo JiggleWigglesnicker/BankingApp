@@ -22,5 +22,18 @@ public class BankRecord {
     public Double calcTotalCurrencies(){
         // TODO : possible calc total amount of all accounts and store in bankTotal
         return bankTotal;
+
+    }
+    public void mostAccountsHolder()
+    {
+        String tempName = null;
+        Double tempAccountCount = null;
+
+        for(AccountHolder acc : accountHolderList){
+            if(acc.accountCount() > tempAccountCount){
+                tempAccountCount = acc.accountCount();
+                tempName = acc.getHolderName();
+            }
+        }
     }
 }
