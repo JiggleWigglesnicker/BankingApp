@@ -26,11 +26,14 @@ public class BankRecord {
             for(Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
                 if(recordTotalIndividualCurrencies.isEmpty()) {
                     recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
+                    System.out.println(recordTotalIndividualCurrencies);
                 }else{
+                    System.out.println(recordTotalIndividualCurrencies);
                     recordTotalIndividualCurrencies.put(entry.getKey(),recordTotalIndividualCurrencies.get(entry.getKey()) +entry.getValue() );
                 }
             }
         }
+        System.out.println(recordTotalIndividualCurrencies);
     }
 
     public HashMap<String,Double> getRecordTotalIndividualCurrencies(){

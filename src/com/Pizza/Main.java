@@ -40,6 +40,7 @@ public class Main {
         holder1.addAccount(account3);
         holder1.calcTotalAmountHolder();
         record.addHolder(holder1);
+        record.calcRecordTotalIndividualCurrencies();
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
