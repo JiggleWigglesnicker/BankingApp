@@ -49,7 +49,7 @@ public class Main {
                     "\n||Welcome to the Banking Administration application.||" +
                     "\n||==================================================|| \n");
             System.out.println("Please select an option." +
-                    " \n-BankTotal [currencyType] \n-Show Individual Currencies \n-Show Richest \n-Show Poorest" +
+                    " \n-BankTotal [Yen/Dollar/Euro/Bitcoin/Ethereum] \n-Show Individual Currencies \n-Show Richest \n-Show Poorest" +
                     " \n-Show Most Accounts \n-Exit\n");
 
             String action = "";
@@ -57,9 +57,21 @@ public class Main {
                 action = reader.readLine();
 
                 switch (action) {
-                    //TODO : heeft input nodig van user moet aangepast worden
-                    case "-BankTotal [currencyType]":
+
+                    case "-BankTotal Yen":
                         admin.calcBankTotal("Yen");
+                        break;
+                    case "-BankTotal Dollar":
+                        admin.calcBankTotal("Dollar");
+                        break;
+                    case "-BankTotal Euro":
+                        admin.calcBankTotal("Euro");
+                        break;
+                    case "-BankTotal Bitcoin":
+                        admin.calcBankTotal("Bitcoin");
+                        break;
+                    case "-BankTotal Ethereum":
+                        admin.calcBankTotal("Ethereum");
                         break;
                     case "-Show Individual Currencies":
                         admin.showTotalIndividualCurrencies();

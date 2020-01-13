@@ -22,18 +22,9 @@ public class BankRecord {
     }
 
     public void calcRecordTotalIndividualCurrencies(){
-        for(AccountHolder holder :accountHolderList ){
-            for(Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
-                if(recordTotalIndividualCurrencies.isEmpty()) {
-                    recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
-                    System.out.println(recordTotalIndividualCurrencies);
-                }else{
-                    System.out.println(recordTotalIndividualCurrencies);
-                    recordTotalIndividualCurrencies.put(entry.getKey(),recordTotalIndividualCurrencies.get(entry.getKey()) +entry.getValue() );
-                }
-            }
+        for(AccountHolder holder : accountHolderList){
+
         }
-        System.out.println(recordTotalIndividualCurrencies);
     }
 
     public HashMap<String,Double> getRecordTotalIndividualCurrencies(){

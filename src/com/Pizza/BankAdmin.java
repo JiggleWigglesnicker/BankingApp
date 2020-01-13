@@ -1,5 +1,7 @@
 package com.Pizza;
 
+import java.util.HashMap;
+
 public class BankAdmin {
 
     private BankRecord bankRecord;
@@ -13,7 +15,9 @@ public class BankAdmin {
     }
 
     public String showTotalIndividualCurrencies() {
-        return null;
+        HashMap<String,Double> individualTotal = bankRecord.getRecordTotalIndividualCurrencies();
+        System.out.println(individualTotal.toString());
+        return individualTotal.toString();
     }
 
     public String poorestAccount() {
