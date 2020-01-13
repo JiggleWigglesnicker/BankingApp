@@ -22,7 +22,15 @@ public class BankRecord {
     }
 
     public void calcRecordTotalIndividualCurrencies(){
+        for(AccountHolder holder : accountHolderList){
+            for (Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
+                recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
 
+            }
+
+        }
+
+        System.out.println(recordTotalIndividualCurrencies);
     }
 
     public HashMap<String,Double> getRecordTotalIndividualCurrencies(){

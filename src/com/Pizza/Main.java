@@ -21,6 +21,8 @@ public class Main {
         Account account2 = new Account("TrustFund2");
         Account account3 = new Account("TrustFund3");
         AccountHolder holder1 = new AccountHolder("Henk");
+        AccountHolder holder2 = new AccountHolder("Henk");
+        AccountHolder holder3 = new AccountHolder("Henk");
         BankRecord record = new BankRecord();
         BankAdmin admin = new BankAdmin(record);
 
@@ -36,10 +38,14 @@ public class Main {
         account3.addCurrency(euro3);
 
         holder1.addAccount(account1);
-        holder1.addAccount(account2);
-        holder1.addAccount(account3);
+        holder2.addAccount(account2);
+        holder3.addAccount(account3);
         holder1.calcTotalAmountHolder();
+        holder2.calcTotalAmountHolder();
+        holder3.calcTotalAmountHolder();
         record.addHolder(holder1);
+        record.addHolder(holder2);
+        record.addHolder(holder3);
         record.calcRecordTotalIndividualCurrencies();
 
 
