@@ -11,10 +11,21 @@ public class BankAdmin {
         bankRecord = record;
     }
 
-    public String calcBankTotal(String currency) {
-        return null;
-    }
+    public void calcBankTotal(String currency) {
+        double rate = 0.0;
+        double bankMoney = 0.0;
+        for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+            bankMoney += holder.getTotalHolderAmount();
+        }
+        System.out.println(bankMoney);
 
+        for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+            HashMap<String, Double> moneyList = new HashMap<String,Double>(holder.getRateList());
+            rate = moneyList.get(currency);
+            System.out.println( + rate + " worth of " + currency);
+        }
+        System.out.println("The bank has " + bankMoney * rate + " worth of " + currency);
+    }
     public String showTotalIndividualCurrencies() {
         HashMap<String,Double> individualTotal = bankRecord.getRecordTotalIndividualCurrencies();
         System.out.println(individualTotal.toString());

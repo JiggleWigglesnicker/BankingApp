@@ -42,7 +42,6 @@ public class AccountHolder {
             for(Currency currency : account.getMultiCurrenciesList()){
                 String nameCurrency = currency.getCurrencyName();
                 Double amountCurrency = currency.getAmount();
-
                 prevAmount.put(nameCurrency, amountCurrency);
             }
 
