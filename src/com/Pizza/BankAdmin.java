@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class BankAdmin {
 
+
     private BankRecord bankRecord;
 
     public BankAdmin(BankRecord record) {
@@ -20,26 +21,49 @@ public class BankAdmin {
         return individualTotal.toString();
     }
 
-    public String poorestAccount() {
-        return null;
-    }
+    public void poorestAccount() {
+        String holderName = null;
+        double holderTotalMoney = 0.0;
 
-    public String richestAccount() {
-        return null;
-    }
-
-    public String showMostAccounts() {
-        String tempName = "";
-        Double tempAccountCount = 0.0;
-
-        for (AccountHolder acc : bankRecord.getAccountHolderList()) {
-            if (acc.accountCount() > tempAccountCount) {
-                tempAccountCount = acc.accountCount();
-                tempName = acc.getHolderName();
+        for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+            if (holderTotalMoney == 0.0){
+                holderName = holder.getHolderName();
+                holderTotalMoney = holder.getTotalHolderAmount();
+            }
+            else if(holder.getTotalHolderAmount() < holderTotalMoney)
+            {
+                holderName = holder.getHolderName();
+                holderTotalMoney = holder.getTotalHolderAmount();
             }
         }
-        String personWithAccounts = tempName + " " + tempAccountCount.toString();
-        System.out.println(personWithAccounts);
-        return personWithAccounts;
+        String holderMoney = holderName + " " + holderTotalMoney;
+        System.out.println(holderMoney);
     }
-}
+        public void richestAccount () {
+            String holderName = null;
+            double holderTotalMoney = 0.0;
+            for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+                if (holder.getTotalHolderAmount() > holderTotalMoney) {
+                    holderName = holder.getHolderName();
+                    holderTotalMoney = holder.getTotalHolderAmount();
+                }
+            }
+            String holderMoney = holderName + " " + holderTotalMoney;
+            System.out.println(holderMoney);
+    }
+        public String showMostAccounts () {
+            String tempName = "";
+            Double tempAccountCount = 0.0;
+
+            for (AccountHolder acc : bankRecord.getAccountHolderList()) {
+                if (acc.accountCount() > tempAccountCount) {
+                    tempAccountCount = acc.accountCount();
+                    tempName = acc.getHolderName();
+                }
+            }
+            String personWithAccounts = tempName + " " + tempAccountCount.toString();
+            System.out.println(personWithAccounts);
+            return personWithAccounts;
+        }
+    }
+
