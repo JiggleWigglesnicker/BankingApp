@@ -29,7 +29,7 @@ public class BankRecord {
                     System.out.println(recordTotalIndividualCurrencies);
                 }else{
                     System.out.println(recordTotalIndividualCurrencies);
-                    recordTotalIndividualCurrencies.put(entry.getKey(),recordTotalIndividualCurrencies.get(entry.getKey()) +entry.getValue() );
+                    recordTotalIndividualCurrencies.put("",0.0);
                 }
             }
         }
