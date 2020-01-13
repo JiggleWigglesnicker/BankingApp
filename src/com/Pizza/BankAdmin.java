@@ -1,9 +1,10 @@
 package com.Pizza;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class BankAdmin {
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
 
     private BankRecord bankRecord;
 
@@ -14,15 +15,17 @@ public class BankAdmin {
     public void calcBankTotal(String currency) {
         double rate = 0.0;
         double bankMoney = 0.0;
+        double total = 0.0;
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
             bankMoney += holder.getTotalHolderAmount();
         }
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
             HashMap<String, Double> moneyList = new HashMap<String,Double>(holder.getRateList());
             rate = moneyList.get(currency);
-            System.out.println(currency + " has a rate of " + rate);
+
         }
-        System.out.println("The bank has " + bankMoney * rate + " worth of " + currency);
+        total = bankMoney * rate;
+        System.out.println("The bank has " + df.format(total)+ " worth of " + currency);
     }
     public String showTotalIndividualCurrencies() {
         HashMap<String,Double> individualTotal = bankRecord.getRecordTotalIndividualCurrencies();
@@ -45,7 +48,7 @@ public class BankAdmin {
                 holderTotalMoney = holder.getTotalHolderAmount();
             }
         }
-        String holderMoney = holderName + " " + holderTotalMoney;
+        String holderMoney = holderName + " " + df.format(holderTotalMoney);
         System.out.println(holderMoney);
     }
         public void richestAccount () {
@@ -57,7 +60,7 @@ public class BankAdmin {
                     holderTotalMoney = holder.getTotalHolderAmount();
                 }
             }
-            String holderMoney = holderName + " " + holderTotalMoney;
+            String holderMoney = holderName + " " + df.format(holderTotalMoney);
             System.out.println(holderMoney);
     }
         public String showMostAccounts () {
