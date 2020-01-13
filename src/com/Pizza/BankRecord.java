@@ -26,6 +26,7 @@ public class BankRecord {
     }
     public void mostAccountsHolder()
     {
+        //wellicht hier een list voor de naam hebben, want meerdere mensen kunnen evenveel accounts hebben?
         String tempName = null;
         Double tempAccountCount = null;
 
