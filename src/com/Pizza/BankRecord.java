@@ -1,11 +1,13 @@
 package com.Pizza;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class BankRecord {
 
     private HashSet<AccountHolder> accountHolderList = new HashSet<AccountHolder>();
-    private Double bankTotal;
+    private HashMap<String, Double> recordTotalIndividualCurrencies = new HashMap<String, Double>();
 
     public BankRecord(){
 
@@ -19,8 +21,20 @@ public class BankRecord {
         accountHolderList.add(holder);
     }
 
-    public Double calcTotalCurrencies(){
-        // TODO : possible calc total amount of all accounts and store in bankTotal
-        return bankTotal;
+    public void calcRecordTotalIndividualCurrencies(){
+        for(AccountHolder holder :accountHolderList ){
+            for(Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
+                if(recordTotalIndividualCurrencies.isEmpty()) {
+                    recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
+                }else{
+                    recordTotalIndividualCurrencies.put(entry.getKey(),recordTotalIndividualCurrencies.get(entry.getKey()) +entry.getValue() );
+                }
+            }
+        }
+    }
+
+    public HashMap<String,Double> getRecordTotalIndividualCurrencies(){
+        calcRecordTotalIndividualCurrencies();
+        return recordTotalIndividualCurrencies;
     }
 }

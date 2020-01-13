@@ -9,6 +9,7 @@ public class AccountHolder {
     private HashSet<Account> accountList = new HashSet<Account>();
     private Double totalHolderAmount = 0.0;
     private HashMap<String, Double> totalCurrencyList = new HashMap<String, Double>();
+    private HashMap<String, Double> rateList = new HashMap<String,Double>();
 
     public AccountHolder(String name){
         nameHolder = name;
@@ -60,9 +61,7 @@ public class AccountHolder {
 
     public void calcTotalAmountHolder(){
         addUpIndividualAccountCurrencies();
-        System.out.println(totalCurrencyList);
         Double totalAmount = 0.0;
-        HashMap<String, Double> rateList = new HashMap<String,Double>();
         for(Account account : accountList){
             for(Currency currency : account.getMultiCurrenciesList()){
                 String name = currency.getCurrencyName();
@@ -73,19 +72,19 @@ public class AccountHolder {
         }
 
         for(Map.Entry<String,Double> entry : totalCurrencyList.entrySet()){
-            System.out.println("henk");
             for(Map.Entry<String,Double> rateMap : rateList.entrySet()){
                 if(rateMap.getKey() == entry.getKey()){
-                    Double calcDollarAmount = entry.getValue() * rateMap.getValue();
+                    Double calcDollarAmount = entry.getValue() / rateMap.getValue();
                     totalAmount += calcDollarAmount;
                 }
             }
         }
         totalHolderAmount = totalAmount;
-        System.out.println(getTotalHolderAmount());
     }
 
-
+    public HashMap<String,Double> getRateList(){
+        return rateList;
+    }
     public HashMap<String,Double> getTotalCurrencyList(){
         return totalCurrencyList;
     }
