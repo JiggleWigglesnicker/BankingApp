@@ -38,7 +38,7 @@ public class Main {
         holder1.addAccount(account1);
         holder1.addAccount(account2);
         holder1.addAccount(account3);
-        holder1.addUpIndividualAccountCurrencies();
+        holder1.calcTotalAmountHolder();
         record.addHolder(holder1);
 
 
