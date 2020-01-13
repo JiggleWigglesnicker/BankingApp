@@ -24,7 +24,11 @@ public class BankRecord {
     public void calcRecordTotalIndividualCurrencies(){
         for(AccountHolder holder : accountHolderList){
             for (Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
-                recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
+                if(!recordTotalIndividualCurrencies.containsKey(entry.getKey())){
+                    recordTotalIndividualCurrencies.put(entry.getKey(),entry.getValue());
+                }else{
+                    recordTotalIndividualCurrencies.put(entry.getKey(), recordTotalIndividualCurrencies.get(entry.getKey()) +entry.getValue());
+                }
 
             }
 
