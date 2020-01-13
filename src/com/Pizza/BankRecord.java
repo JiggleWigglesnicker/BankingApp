@@ -34,7 +34,6 @@ public class BankRecord {
     }
 
     public HashMap<String,Double> getRecordTotalIndividualCurrencies(){
-        calcRecordTotalIndividualCurrencies();
         return recordTotalIndividualCurrencies;
     }
 }
