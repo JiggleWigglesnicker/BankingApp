@@ -37,7 +37,7 @@ public class Account {
                 storedCurrencyToReceive = moneyObject2.getAmount();
             }
 
-            // TODO : in andere methode dit stukje voor gemakkelijker berekeningen
+
             Double tempAmount = fullAmount / moneyObject2.getRate();
             tempAmount = tempAmount * moneyObject1.getRate();
 
