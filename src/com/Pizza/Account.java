@@ -26,18 +26,18 @@ public class Account {
         Double storedCurrencyToTrade = 0.0;
         Double storedCurrencyToReceive = 0.0;
 
-        for(Currency cur : multiCurrenciesList){
-            if (cur.getCurrencyName() == currency1){
+        for(Currency cur : multiCurrenciesList) {
+            if (cur.getCurrencyName() == currency1) {
                 moneyObject1 = cur;
                 storedCurrencyToTrade = moneyObject1.getAmount();
             }
 
-            if(cur.getCurrencyName() == currency2){
+            if (cur.getCurrencyName() == currency2) {
                 moneyObject2 = cur;
                 storedCurrencyToReceive = moneyObject2.getAmount();
             }
 
-
+        }
             Double tempAmount = fullAmount / moneyObject2.getRate();
             tempAmount = tempAmount * moneyObject1.getRate();
 
@@ -50,9 +50,6 @@ public class Account {
             }else{
                 System.out.println("not enough money");
             }
-
-
-        }
     }
 
     public void addCurrency(Currency currency){
