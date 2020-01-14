@@ -12,20 +12,20 @@ public class BankAdmin {
         bankRecord = record;
     }
 
+    //hier word de totale hoeveelheid geld in 1 type currency getoont. Alles word omgerekent naar 1 type
     public void calcBankTotal(String currency) {
         double rate = 0.0;
         double bankMoney = 0.0;
-        double total = 0.0;
+        //Hier word er door alle accountholder geloopt, waar ze alle geld al hebben staan, terwijl deze al omgezet is, en word het geld opgeteld
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
             bankMoney += holder.getTotalHolderAmount();
         }
+        //hier word het totale bedrag vermenigvuldigt met de rate waardoor je de correcte hoeveelheid hebt
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
             HashMap<String, Double> moneyList = new HashMap<String,Double>(holder.getRateList());
             rate = moneyList.get(currency);
-
         }
-        total = bankMoney * rate;
-        System.out.println("The bank has " + df.format(total)+ " worth of " + currency);
+        System.out.println("The bank has " + df.format(bankMoney * rate)+ " worth of " + currency);
     }
     public String showTotalIndividualCurrencies() {
         HashMap<String,Double> individualTotal = bankRecord.getRecordTotalIndividualCurrencies();
@@ -38,10 +38,12 @@ public class BankAdmin {
         double holderTotalMoney = 0.0;
 
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+            //Hier word de eerste persoon geinstancierd
             if (holderTotalMoney == 0.0){
                 holderName = holder.getHolderName();
                 holderTotalMoney = holder.getTotalHolderAmount();
             }
+            //hier word er vergeleken met de huidige armste persoon
             else if(holder.getTotalHolderAmount() < holderTotalMoney)
             {
                 holderName = holder.getHolderName();
@@ -49,33 +51,31 @@ public class BankAdmin {
             }
         }
         String holderMoney = holderName + " " + df.format(holderTotalMoney);
-        System.out.println(holderMoney);
+        System.out.println(holderName + " " + df.format(holderTotalMoney));
     }
         public void richestAccount () {
             String holderName = null;
             double holderTotalMoney = 0.0;
             for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+                //hier word er vergeleken met de huidige rijkste persoon
                 if (holder.getTotalHolderAmount() > holderTotalMoney) {
                     holderName = holder.getHolderName();
                     holderTotalMoney = holder.getTotalHolderAmount();
                 }
             }
-            String holderMoney = holderName + " " + df.format(holderTotalMoney);
-            System.out.println(holderMoney);
+            System.out.println(holderName + " " + df.format(holderTotalMoney));
     }
-        public String showMostAccounts () {
+        public void showMostAccounts () {
             String tempName = "";
             Double tempAccountCount = 0.0;
-
+            //hier word er door de bankrecord lijst geloopt en word een functie gebruikt die de size van de hashmap weergeeft. meer is groter en word opgeslagen
             for (AccountHolder acc : bankRecord.getAccountHolderList()) {
                 if (acc.accountCount() > tempAccountCount) {
                     tempAccountCount = acc.accountCount();
                     tempName = acc.getHolderName();
                 }
             }
-            String personWithAccounts = tempName + " " + tempAccountCount.toString();
-            System.out.println(personWithAccounts);
-            return personWithAccounts;
+            System.out.println(tempName + " " + tempAccountCount.toString());
         }
     }
 
