@@ -38,7 +38,7 @@ public class Main {
         account3.addCurrency(euro3);
 
         holder1.addAccount(account1);
-        holder2.addAccount(account2);
+        holder1.addAccount(account2);
         holder3.addAccount(account3);
         holder1.calcTotalAmountHolder();
         holder2.calcTotalAmountHolder();

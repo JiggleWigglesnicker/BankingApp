@@ -7,7 +7,8 @@ import java.util.Map;
 public class AccountHolder {
     private String nameHolder;
     private HashSet<Account> accountList = new HashSet<Account>();
-    private Double totalHolderAmount = 0.0;
+    //TODO: Holder amount moet weg kan worden berekent en worden gereturned
+    //private Double totalHolderAmount = 0.0;
     private HashMap<String, Double> totalCurrencyList = new HashMap<String, Double>();
     private HashMap<String, Double> rateList = new HashMap<String,Double>();
 
@@ -19,9 +20,9 @@ public class AccountHolder {
         return nameHolder;
     }
 
-    public Double getTotalHolderAmount(){
-        return totalHolderAmount;
-    }
+//    public Double getTotalHolderAmount(){
+//        return totalHolderAmount;
+//    }
 
     public HashSet<Account> getAccountList() {
         return accountList;
@@ -78,7 +79,8 @@ public class AccountHolder {
                 }
             }
         }
-        totalHolderAmount = totalAmount;
+        //TODO: returen hier total amount
+        //totalHolderAmount = totalAmount;
     }
 
     public HashMap<String,Double> getRateList(){

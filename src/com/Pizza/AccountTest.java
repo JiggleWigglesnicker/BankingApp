@@ -30,6 +30,7 @@ class AccountTest {
         account1.addCurrency(yen1);
         account1.addCurrency(dollar1);
         account1.conversion(cur1,cur2,2200.0);
+        //TODO : for loop om currency op te halen in methode doen in account class
         for(Currency cur : account1.getMultiCurrenciesList()){
             if(cur.getCurrencyName() == cur2){
                 amount2 = cur.getAmount();

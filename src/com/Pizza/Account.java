@@ -27,20 +27,24 @@ public class Account {
         Double storedCurrencyToReceive = 0.0;
 
         for(Currency cur : multiCurrenciesList) {
+
+            //TODO : make into methode with parameter
             if (cur.getCurrencyName() == currency1) {
                 moneyObject1 = cur;
                 storedCurrencyToTrade = moneyObject1.getAmount();
             }
-
+            //TODO : make into methode with parameter
             if (cur.getCurrencyName() == currency2) {
                 moneyObject2 = cur;
                 storedCurrencyToReceive = moneyObject2.getAmount();
             }
 
         }
+        //TODO: methode van maken deze berekening
             Double tempAmount = fullAmount / moneyObject2.getRate();
             tempAmount = tempAmount * moneyObject1.getRate();
 
+            //TODO : is er genoeg geld in de bankrekening
             if(storedCurrencyToTrade >= tempAmount){
                 Double newAmount = storedCurrencyToTrade - tempAmount;
                 moneyObject1.setAmount(newAmount);
@@ -48,7 +52,7 @@ public class Account {
                 moneyObject2.setAmount(newAmount);
 
             }else{
-                System.out.println("not enough money");
+                //TODO: exception here gooien
             }
     }
 

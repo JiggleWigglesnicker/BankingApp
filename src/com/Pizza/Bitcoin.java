@@ -7,6 +7,7 @@ public class Bitcoin extends Currency implements CryptoRegulator {
         super(currencyName,  amount,  rate);
     }
 
+    //TODO: private make nen afschermen zodat het niet van buiten verandert kan worden
     public void setCryptoLimit(Double limit){
 
     }
