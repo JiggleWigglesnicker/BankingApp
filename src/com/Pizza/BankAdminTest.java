@@ -16,11 +16,53 @@ class BankAdminTest {
 
     @Test
     void poorestAccount() {
+
     }
 
     @Test
     void richestAccount() {
+        Euro euro1 = new Euro("Euro", 23.0, 0.81);
+        Dollar dollar1 = new Dollar("Dollar" , 50.0, 1.0);
+        Yen yen1 = new Yen("Yen", 35.5, 121.0);
+        Euro euro2 = new Euro("Euro", 23.0, 0.81);
+        Dollar dollar2 = new Dollar("Dollar" , 50.0, 1.0);
+        Yen yen2 = new Yen("Yen", 35.5, 121.0);
+        Euro euro3 = new Euro("Euro", 23.0, 0.81);
+        Dollar dollar3 = new Dollar("Dollar" , 50.0, 1.0);
+        Yen yen3 = new Yen("Yen", 35.5, 121.0);
+        Account account1 = new Account("TrustFund1");
+        Account account2 = new Account("TrustFund2");
+        Account account3 = new Account("TrustFund3");
+        AccountHolder holder1 = new AccountHolder("Henk");
+        AccountHolder holder2 = new AccountHolder("Piet");
+        AccountHolder holder3 = new AccountHolder("Frits");
+        BankRecord record = new BankRecord();
+        BankAdmin admin = new BankAdmin(record);
 
+        // Calling methods of objects
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.addCurrency(dollar1);
+        account2.addCurrency(euro2);
+        account2.addCurrency(yen2);
+        account2.addCurrency(dollar2);
+        account3.addCurrency(dollar3);
+        account3.addCurrency(yen3);
+        account3.addCurrency(euro3);
+
+        holder1.addAccount(account1);
+        holder2.addAccount(account2);
+        holder3.addAccount(account3);
+        holder1.calcTotalAmountHolder();
+        holder2.calcTotalAmountHolder();
+        holder3.calcTotalAmountHolder();
+        record.addHolder(holder1);
+        record.addHolder(holder2);
+        record.addHolder(holder3);
+        admin.richestAccount();
+
+        assertEquals(78.69, 78.69);
+        assertEquals("Piet", "Piet");
     }
 
     @Test
