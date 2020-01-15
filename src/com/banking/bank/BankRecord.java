@@ -1,4 +1,4 @@
-package com.Pizza;
+package com.banking.bank;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,7 +33,7 @@ public class BankRecord {
             }
 
         }
-
+        //TODO: moet weg hier mag alleen in main laten zien hier exception gooien
         System.out.println(recordTotalIndividualCurrencies);
     }
 

@@ -1,4 +1,6 @@
-package com.Pizza;
+package com.banking.bank;
+
+import com.banking.currency.Currency;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,6 +22,7 @@ public class AccountHolder {
         return nameHolder;
     }
 
+    //TODO: MOET WEG HIER TOTALHOLDERAMOUNT MOET GERETURNED WORDEN IN EEN METHOD
 //    public Double getTotalHolderAmount(){
 //        return totalHolderAmount;
 //    }
@@ -36,6 +39,7 @@ public class AccountHolder {
         return accountList.size();
     }
 
+    //TODO: APARTE METHODES MAKEN ALS HET KAN
     public void addUpIndividualAccountCurrencies(){
         HashMap<String, Double> prevAmount = new HashMap<String,Double>();
 

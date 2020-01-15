@@ -1,5 +1,12 @@
-package com.Pizza;
+package com.banking.testcases;
 
+import com.banking.bank.Account;
+import com.banking.bank.AccountHolder;
+import com.banking.bank.BankAdmin;
+import com.banking.bank.BankRecord;
+import com.banking.currency.Dollar;
+import com.banking.currency.Euro;
+import com.banking.currency.Yen;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,6 +28,9 @@ class BankAdminTest {
 
     @Test
     void richestAccount() {
+        //TODO: maakt andere variablen aan zodat het niet
+        // duplicatie is in hier en in de main want deze duplecaat komt van main
+
         Euro euro1 = new Euro("Euro", 23.0, 0.81);
         Dollar dollar1 = new Dollar("Dollar" , 50.0, 1.0);
         Yen yen1 = new Yen("Yen", 35.5, 121.0);

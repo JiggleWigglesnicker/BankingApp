@@ -1,4 +1,4 @@
-package com.Pizza;
+package com.banking.currency;
 
 public class Ethereum extends Currency implements CryptoRegulator {
     private Double virtualLimit;

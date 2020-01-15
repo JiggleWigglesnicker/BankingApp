@@ -1,4 +1,4 @@
-package com.Pizza;
+package com.banking.currency;
 
 public abstract class Currency {
     private String currencyName;

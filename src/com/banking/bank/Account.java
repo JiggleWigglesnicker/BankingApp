@@ -1,4 +1,6 @@
-package com.Pizza;
+package com.banking.bank;
+
+import com.banking.currency.Currency;
 
 import java.util.HashSet;
 
