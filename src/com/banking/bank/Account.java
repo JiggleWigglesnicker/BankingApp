@@ -40,7 +40,6 @@ public class Account {
                 moneyObject2 = cur;
                 storedCurrencyToReceive = moneyObject2.getAmount();
             }
-
         }
         //TODO: methode van maken deze berekening
             Double tempAmount = fullAmount / moneyObject2.getRate();
