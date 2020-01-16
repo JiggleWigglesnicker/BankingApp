@@ -1,17 +1,15 @@
 package com.banking.currency;
 
 public abstract class Currency {
-    private String currencyName;
+    protected String currencyName;
     private Double amount;
-    private Double rate;
+    protected Double rate;
 
-    Currency(String currencyName, Double amount, Double rate){
-        this.currencyName = currencyName;
+    Currency(Double amount){
         this.amount = amount;
-        this.rate = rate;
     }
 
-    public void setAmount(Double amount) {
+    private void setAmount(Double amount) {
         this.amount = amount;
     }
 

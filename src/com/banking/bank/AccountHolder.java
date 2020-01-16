@@ -1,6 +1,6 @@
 package com.banking.bank;
 
-import com.banking.currency.Currency;
+import com.banking.currency.*;
 
 import java.util.HashMap;
 import java.util.HashSet;
