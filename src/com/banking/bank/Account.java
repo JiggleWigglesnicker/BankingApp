@@ -63,44 +63,4 @@ public class Account {
             throw new ArithmeticException("Not enough funds for conversion");
         }
     }
-
-
-
-//
-//    public void conversion (String tradeInCurrency, String recievingCurrency, Double wantingToRecieve){
-//        Currency tradeInCurrencyObject = null;
-////        Currency recievingCurrencyObject = null;
-////
-////        Double storedCurrencyToTrade = 0.0;
-////        Double storedCurrencyToReceive = 0.0;
-////
-//        for(Currency cur : multiCurrenciesList) {
-//
-//            //TODO :p make into methode with arameter
-//            if (cur.getCurrencyName() == tradeInCurrency) {
-//                tradeInCurrencyObject = cur;
-//                storedCurrencyToTrade = tradeInCurrencyObject.getAmount();
-//            }
-//            //TODO : make into methode with parameter
-//            if (cur.getCurrencyName() == recievingCurrency) {
-//                recievingCurrencyObject = cur;
-//                storedCurrencyToReceive = recievingCurrencyObject.getAmount();
-//            }
-//        }
-//        //TODO: methode van maken deze berekening
-//            Double tempAmount = wantingToRecieve / recievingCurrencyObject.getRate();
-//            tempAmount = tempAmount * tradeInCurrencyObject.getRate();
-//
-//            //TODO : is er genoeg geld in de bankrekening
-//            if(storedCurrencyToTrade >= tempAmount){
-//                Double newAmount = storedCurrencyToTrade - tempAmount;
-//                tradeInCurrencyObject.setAmount(newAmount);
-//                newAmount = storedCurrencyToReceive + wantingToRecieve;
-//                recievingCurrencyObject.setAmount(newAmount);
-//
-//            }else{
-//                //TODO: exception here gooien
-//            }
-//    }
-
 }
