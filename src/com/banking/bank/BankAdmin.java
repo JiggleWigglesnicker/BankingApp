@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class BankAdmin {
+    //TODO : FIELD MOET WEG , LOKAAL IN METHOD NIET HIER
     private static DecimalFormat df = new DecimalFormat("0.00");
 
     private BankRecord bankRecord;

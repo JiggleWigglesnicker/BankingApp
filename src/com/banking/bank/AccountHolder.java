@@ -39,6 +39,14 @@ public class AccountHolder {
         return accountList.size();
     }
 
+    public HashMap<String,Double> getRateList(){
+        return rateList;
+    }
+
+    public HashMap<String,Double> getTotalCurrencyList(){
+        return totalCurrencyList;
+    }
+
     //TODO: APARTE METHODES MAKEN ALS HET KAN
     public void addUpIndividualAccountCurrencies(){
         HashMap<String, Double> prevAmount = new HashMap<String,Double>();
@@ -87,10 +95,5 @@ public class AccountHolder {
         //totalHolderAmount = totalAmount;
     }
 
-    public HashMap<String,Double> getRateList(){
-        return rateList;
-    }
-    public HashMap<String,Double> getTotalCurrencyList(){
-        return totalCurrencyList;
-    }
+
 }

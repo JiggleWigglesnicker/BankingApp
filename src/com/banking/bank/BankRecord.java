@@ -21,6 +21,11 @@ public class BankRecord {
         accountHolderList.add(holder);
     }
 
+    public HashMap<String,Double> getRecordTotalIndividualCurrencies(){
+        return recordTotalIndividualCurrencies;
+    }
+
+    // TODO: MOGELIJK OPSPLITSEN IN METHODS
     public void calcRecordTotalIndividualCurrencies(){
         for(AccountHolder holder : accountHolderList){
             for (Map.Entry<String,Double> entry : holder.getTotalCurrencyList().entrySet()){
@@ -33,11 +38,6 @@ public class BankRecord {
             }
 
         }
-        //TODO: moet weg hier mag alleen in main laten zien hier exception gooien
-        System.out.println(recordTotalIndividualCurrencies);
     }
 
-    public HashMap<String,Double> getRecordTotalIndividualCurrencies(){
-        return recordTotalIndividualCurrencies;
-    }
 }
