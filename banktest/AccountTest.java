@@ -99,6 +99,6 @@ class AccountTest {
         account1.tradeInCurrency("Euro");
         account1.recievingCurrency("Yen");
         account1.recievingToTradeIn(2000.00);
-        account1.checkBalance();
+        account1.checkAndSetBalance();
     }
 }

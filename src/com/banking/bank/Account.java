@@ -13,6 +13,7 @@ public class Account {
     private Double storedCurrencyToTrade = 0.0;
     private Double storedCurrencyToReceive = 0.0;
     private Double tempAmount = 0.0;
+    private Double wantingToRecieve = 0.0;
     private HashSet<Currency> multiCurrenciesList = new HashSet<Currency>();
 
     public Account(String name){
@@ -37,13 +38,6 @@ public class Account {
         }
     }
 
-    public double getStoredCurrencyToTrade(){
-        return storedCurrencyToTrade;
-    }
-    public Currency getTradeInCurrencyObject(){
-        return tradeInCurrencyObject;
-    }
-
     //zoekt het geld wat je wilt ontvangen en kijkt hoeveel je hier van hebt
     public void recievingCurrency(String recievingCurrency){
         for(Currency cur : multiCurrenciesList) {
@@ -53,29 +47,33 @@ public class Account {
             }
         }
     }
-    public double getStoredCurrencyToRecieve(){
-        return storedCurrencyToReceive;
-    }
-    public Currency getRecievingCurrencyObject(){
-        return recievingCurrencyObject;
-    }
+
 
     //calculates the amount of money you will be recieving into the currency you will be trading in
-    public void recievingToTradeIn(double fullAmount){
-        tempAmount = fullAmount / recievingCurrencyObject.getRate();
+    public void recievingToTradeIn(double amountWantingToRecieve){
+        wantingToRecieve = amountWantingToRecieve;
+        tempAmount = amountWantingToRecieve / recievingCurrencyObject.getRate();
         tempAmount = tempAmount * tradeInCurrencyObject.getRate();
     }
-    public double getTempAmount(){
-        return tempAmount;
+
+
+    public void checkAndSetBalance() {
+        if (storedCurrencyToTrade >= tempAmount) {
+            Double newAmount = storedCurrencyToTrade - tempAmount;
+            tradeInCurrencyObject.setAmount(newAmount);
+            newAmount = storedCurrencyToReceive + wantingToRecieve;
+            recievingCurrencyObject.setAmount(newAmount);
+        }
+        else
+            {
+                //TODO: exception here gooien
+            }
     }
 
-    public void checkBalance(){
-        System.out.println(recievingCurrencyObject + " " + tradeInCurrencyObject + "  " + tempAmount);
-    }
 
 
 //
-//    public void conversion (String tradeInCurrency, String recievingCurrency, Double fullAmount){
+//    public void conversion (String tradeInCurrency, String recievingCurrency, Double wantingToRecieve){
 //        Currency tradeInCurrencyObject = null;
 //        Currency recievingCurrencyObject = null;
 //
@@ -96,14 +94,14 @@ public class Account {
 //            }
 //        }
 //        //TODO: methode van maken deze berekening
-//            Double tempAmount = fullAmount / recievingCurrencyObject.getRate();
+//            Double tempAmount = wantingToRecieve / recievingCurrencyObject.getRate();
 //            tempAmount = tempAmount * tradeInCurrencyObject.getRate();
 //
 //            //TODO : is er genoeg geld in de bankrekening
 //            if(storedCurrencyToTrade >= tempAmount){
 //                Double newAmount = storedCurrencyToTrade - tempAmount;
 //                tradeInCurrencyObject.setAmount(newAmount);
-//                newAmount = storedCurrencyToReceive + fullAmount;
+//                newAmount = storedCurrencyToReceive + wantingToRecieve;
 //                recievingCurrencyObject.setAmount(newAmount);
 //
 //            }else{
