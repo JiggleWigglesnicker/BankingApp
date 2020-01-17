@@ -44,8 +44,8 @@ public class Account {
     }
 
     //Check if there is enough money in account to afford the money conversion
-    public Boolean checkIfSufficientFunds(String currency, Double AmountToTradeIn){
-            return getCurrency(currency).getAmount() >= AmountToTradeIn;
+    public Boolean checkIfSufficientFunds(Currency currency, Double AmountToTradeIn){
+            return currency.getAmount() >= AmountToTradeIn;
     }
 
 
@@ -53,8 +53,8 @@ public class Account {
     public void conversion(String currencyToTradeIn, String currencyToReceive, Double amountToTradeIn){
         Currency tradeInCurrency  = getCurrency(currencyToTradeIn);
         Currency toReceiveCurrency = getCurrency(currencyToReceive);
-
-        if(checkIfSufficientFunds(currencyToTradeIn,amountToTradeIn)){
+        System.out.println(tradeInCurrency);
+        if(checkIfSufficientFunds(tradeInCurrency,amountToTradeIn)){
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
             tradeInCurrency.setAmount(newAmount);
