@@ -1,5 +1,3 @@
-package com.banking.testcases;
-
 import com.banking.bank.Account;
 import com.banking.currency.Currency;
 import com.banking.currency.Dollar;
@@ -13,8 +11,8 @@ class AccountTest {
 
     @org.junit.jupiter.api.Test
     void addCurrency() {
-        Euro euro1 = new Euro("Euro", 23.0, 0.81);
-        Euro euro2 = new Euro("Euro", 23.0, 0.81);
+        Euro euro1 = new Euro(23.0);
+        Euro euro2 = new Euro(23.0);
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
         account1.addCurrency(euro2);
@@ -27,9 +25,9 @@ class AccountTest {
         Double amount2 = 0.0;
         String cur1 = "Euro";
         String cur2 = "Yen";
-        Euro euro1 = new Euro("Euro", 23.0, 0.81);
-        Yen yen1 = new Yen("Yen", 2300.0, 120.0);
-        Dollar dollar1 = new Dollar("Dollar" , 50.0, 1.0);
+        Euro euro1 = new Euro(23.0);
+        Yen yen1 = new Yen(2300.0);
+        Dollar dollar1 = new Dollar(50.0);
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);

@@ -9,7 +9,7 @@ public abstract class Currency {
         this.amount = amount;
     }
 
-    private void setAmount(Double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

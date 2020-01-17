@@ -16,15 +16,15 @@ public class Main {
 
     public static void main(String[] args) {
         //Initialization of objects
-        Euro euro1 = new Euro("Euro", 23.0, 0.81);
-        Dollar dollar1 = new Dollar("Dollar" , 50.0, 1.0);
-        Yen yen1 = new Yen("Yen", 35.5, 121.0);
-        Euro euro2 = new Euro("Euro", 23.0, 0.81);
-        Dollar dollar2 = new Dollar("Dollar" , 50.0, 1.0);
-        Yen yen2 = new Yen("Yen", 35.5, 121.0);
-        Euro euro3 = new Euro("Euro", 23.0, 0.81);
-        Dollar dollar3 = new Dollar("Dollar" , 50.0, 1.0);
-        Yen yen3 = new Yen("Yen", 35.5, 121.0);
+        Euro euro1 = new Euro(23.0);
+        Dollar dollar1 = new Dollar( 50.0);
+        Yen yen1 = new Yen(35.5);
+        Euro euro2 = new Euro(23.0);
+        Dollar dollar2 = new Dollar(50.0);
+        Yen yen2 = new Yen(35.5);
+        Euro euro3 = new Euro(23.0);
+        Dollar dollar3 = new Dollar(50.0);
+        Yen yen3 = new Yen(35.5);
         Account account1 = new Account("TrustFund1");
         Account account2 = new Account("TrustFund2");
         Account account3 = new Account("TrustFund3");

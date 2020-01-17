@@ -1,5 +1,3 @@
-package com.banking.testcases;
-
 import com.banking.bank.AccountHolder;
 import com.banking.bank.BankRecord;
 import org.junit.jupiter.api.Test;
