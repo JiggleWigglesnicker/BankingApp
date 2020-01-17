@@ -9,6 +9,7 @@ public class Account {
 
     //name of account
     private String accountName;
+
     //HashSet which Stores the amount of Currency and their Type
     private HashSet<Currency> multiCurrenciesList = new HashSet<Currency>();
 
@@ -50,10 +51,7 @@ public class Account {
 
 
     //converts and sets the amount from one currency type to another
-    public void conversion(String currencyToTradeIn, String currencyToReceive, Double amountToTradeIn){
-        Currency tradeInCurrency  = getCurrency(currencyToTradeIn);
-        Currency toReceiveCurrency = getCurrency(currencyToReceive);
-        System.out.println(tradeInCurrency);
+    public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn){
         if(checkIfSufficientFunds(tradeInCurrency,amountToTradeIn)){
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;

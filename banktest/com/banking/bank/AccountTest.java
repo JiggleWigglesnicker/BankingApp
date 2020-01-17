@@ -21,12 +21,12 @@ class AccountTest {
     @Test
     void conversion() {
         Euro euro1 = new Euro(23.0);
-        Yen yen2 = new Yen(230.0);
+        Yen yen1 = new Yen(230.0);
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
-        account1.addCurrency(yen2);
-        account1.conversion("euro","yen", 15.0);
-        assertEquals(8 , account1.getCurrency("euro").getAmount());
+        account1.addCurrency(yen1);
+        account1.conversion(euro1,yen1, 15.0);
+        assertEquals(8 , account1.getCurrency("Euro").getAmount());
 
     }
 
