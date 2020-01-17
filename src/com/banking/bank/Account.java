@@ -6,26 +6,33 @@ import java.util.HashSet;
 
 
 public class Account {
+
+    //name of account
     private String accountName;
+    //HashSet which Stores the amount of Currency and their Type
     private HashSet<Currency> multiCurrenciesList = new HashSet<Currency>();
 
+    //set account name when class is initialized
     public Account(String name){
         accountName = name;
     }
 
+    //gets accountName
     public String getAccountName(){
         return accountName;
     }
 
+    //gets multiCurrenciesList
     public HashSet<Currency> getMultiCurrenciesList() {
         return multiCurrenciesList;
     }
 
+    //adds currencies to the multiCurrenciesList
     public void addCurrency(Currency currency){
         multiCurrenciesList.add(currency);
     }
 
-    // returns currency using the name of the currency in String
+    // returns the wanted currency using the name of said currency
     public Currency getCurrency(String currencyName){
         Currency currency = null;
         for (Currency cur : multiCurrenciesList) {
@@ -36,52 +43,27 @@ public class Account {
         return currency;
     }
 
-    //returns the amount in the to trade in currency
-    public Double toTradeInCurrency(String tradeInCurrency) {
-        Double storedCurrencyToTrade = 0.0;
-        for (Currency cur : multiCurrenciesList) {
-            if (cur.getCurrencyName() == tradeInCurrency) {
-                storedCurrencyToTrade = getCurrency(tradeInCurrency).getAmount();
-            }
+    //Check if there is enough money in account to afford the money conversion
+    public Boolean checkIfSufficientFunds(String currency, Double AmountToTradeIn){
+            return getCurrency(currency).getAmount() >= AmountToTradeIn;
+    }
+
+
+    //converts and sets the amount from one currency type to another
+    public void conversion(String currencyToTradeIn, String currencyToReceive, Double amountToTradeIn){
+        Currency tradeInCurrency  = getCurrency(currencyToTradeIn);
+        Currency toReceiveCurrency = getCurrency(currencyToReceive);
+
+        if(checkIfSufficientFunds(currencyToTradeIn,amountToTradeIn)){
+
+            Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
+            tradeInCurrency.setAmount(newAmount);
+            newAmount = toReceiveCurrency.getAmount() + toReceiveCurrency.getRate() * amountToTradeIn;
+            toReceiveCurrency.setAmount(newAmount);
+
+        }else{
+            throw new ArithmeticException("Not enough funds for conversion");
         }
-        return storedCurrencyToTrade;
-    }
-
-    //returns the amount in the to receive currency
-    public Double toReceivingCurrency(String receivingCurrency){
-        Double storedCurrencyToReceive = 0.0;
-        for(Currency cur : multiCurrenciesList) {
-            if (cur.getCurrencyName() == receivingCurrency) {
-                storedCurrencyToReceive = getCurrency(receivingCurrency).getAmount();
-            }
-        }
-        return storedCurrencyToReceive;
-    }
-
-    //calculates the amount of money you will be receiving into the currency you will be trading in
-      public void calcReceivingCurrencyAmount(double amountWantingToReceive, Currency toTradeIn, Currency toReceive ){
-//        Double calculatedToReceiveAmount = 0.0;
-//        wantingToRecieve = amountWantingToReceive;
-//        tempAmount = amountWantingToReceive / getCurrency().getRate();
-//        tempAmount = tempAmount * tradeInCurrencyObject.getRate();
-    }
-
-    //
-    public void checkAndSetBalance() {
-//        if (storedCurrencyToTrade >= tempAmount) {
-//            Double newAmount = storedCurrencyToTrade - tempAmount;
-//            tradeInCurrencyObject.setAmount(newAmount);
-//            newAmount = storedCurrencyToReceive + wantingToRecieve;
-//            recievingCurrencyObject.setAmount(newAmount);
-//        }
-//        else
-//            {
-//                //TODO: exception here gooien
-//            }
-    }
-
-    public void conversion(String currencyToTradeIn, String currencyToReceive, Double wantedAmount){
-
     }
 
 
@@ -89,11 +71,11 @@ public class Account {
 //
 //    public void conversion (String tradeInCurrency, String recievingCurrency, Double wantingToRecieve){
 //        Currency tradeInCurrencyObject = null;
-//        Currency recievingCurrencyObject = null;
-//
-//        Double storedCurrencyToTrade = 0.0;
-//        Double storedCurrencyToReceive = 0.0;
-//
+////        Currency recievingCurrencyObject = null;
+////
+////        Double storedCurrencyToTrade = 0.0;
+////        Double storedCurrencyToReceive = 0.0;
+////
 //        for(Currency cur : multiCurrenciesList) {
 //
 //            //TODO :p make into methode with arameter
