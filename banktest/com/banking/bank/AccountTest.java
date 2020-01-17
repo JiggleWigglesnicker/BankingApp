@@ -26,7 +26,7 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(yen2);
         account1.conversion("Euro","Yen", 15.0);
-        assertEquals(8 , account1.getCurrency("Euro").getAmount());
+        assertEquals(3950.0 , account1.getCurrency("Yen").getAmount());
 
     }
 
