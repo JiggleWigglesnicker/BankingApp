@@ -17,14 +17,35 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(euro2);
         var setSize = account1.getMultiCurrenciesList().size();
-        assertEquals(2,setSize );
+        assertEquals(2, setSize);
     }
 
+    //    @Test
+//    void conversion() {
+//        Double amount2 = 0.0;
+//        String cur1 = "Euro";
+//        String cur2 = "Yen";
+//        Euro euro1 = new Euro(23.0);
+//        Yen yen1 = new Yen(2300.0);
+//        Dollar dollar1 = new Dollar(50.0);
+//        Account account1 = new Account("TrustFund");
+//        account1.addCurrency(euro1);
+//        account1.addCurrency(yen1);
+//        account1.addCurrency(dollar1);
+//        account1.conversion(cur1,cur2,2200.0);
+//
+//        //TODO : for loop om currency op te halen in methode doen in account class
+//        for(Currency cur : account1.getMultiCurrenciesList()){
+//            if(cur.getCurrencyName() == cur2){
+//                amount2 = cur.getAmount();
+//            }
+//        }
+//        assertEquals(4500.0,amount2);
+//    }
     @Test
-    void conversion() {
-        Double amount2 = 0.0;
+    void tradeInCurrency() {
+        Double amount = 0.0;
         String cur1 = "Euro";
-        String cur2 = "Yen";
         Euro euro1 = new Euro(23.0);
         Yen yen1 = new Yen(2300.0);
         Dollar dollar1 = new Dollar(50.0);
@@ -32,13 +53,52 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);
         account1.addCurrency(dollar1);
-        account1.conversion(cur1,cur2,2200.0);
-        //TODO : for loop om currency op te halen in methode doen in account class
-        for(Currency cur : account1.getMultiCurrenciesList()){
-            if(cur.getCurrencyName() == cur2){
-                amount2 = cur.getAmount();
-            }
-        }
-        assertEquals(4500.0,amount2);
+        account1.tradeInCurrency("Yen");
+    }
+
+    @Test
+    void recievingCurrency() {
+        Double amount = 0.0;
+        String cur1 = "Euro";
+        Euro euro1 = new Euro(23.0);
+        Yen yen1 = new Yen(2300.0);
+        Dollar dollar1 = new Dollar(50.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.addCurrency(dollar1);
+        account1.recievingCurrency("Euro");
+    }
+    @Test
+    void recievingToDollars(){
+        Double amount = 0.0;
+        String cur1 = "Euro";
+        Euro euro1 = new Euro(23.0);
+        Yen yen1 = new Yen(2300.0);
+        Dollar dollar1 = new Dollar(50.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.addCurrency(dollar1);
+        account1.recievingCurrency("Euro");
+        account1.recievingToTradeIn(20.00);
+}
+
+    @Test
+    void checkBalance()
+    {
+        Double amount = 0.0;
+        String cur1 = "Euro";
+        Euro euro1 = new Euro(23.0);
+        Yen yen1 = new Yen(2300.0);
+        Dollar dollar1 = new Dollar(50.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.addCurrency(dollar1);
+        account1.tradeInCurrency("Euro");
+        account1.recievingCurrency("Yen");
+        account1.recievingToTradeIn(2000.00);
+        account1.checkBalance();
     }
 }
