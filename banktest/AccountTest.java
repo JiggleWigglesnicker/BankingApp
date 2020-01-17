@@ -1,5 +1,4 @@
 import com.banking.bank.Account;
-import com.banking.currency.Currency;
 import com.banking.currency.Dollar;
 import com.banking.currency.Euro;
 import com.banking.currency.Yen;
@@ -53,7 +52,7 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);
         account1.addCurrency(dollar1);
-        account1.tradeInCurrency("Yen");
+        account1.toTradeInCurrency("Yen");
     }
 
     @Test
@@ -67,38 +66,38 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);
         account1.addCurrency(dollar1);
-        account1.recievingCurrency("Euro");
+        account1.toReceivingCurrency("Euro");
     }
     @Test
     void recievingToDollars(){
-        Double amount = 0.0;
-        String cur1 = "Euro";
-        Euro euro1 = new Euro(23.0);
-        Yen yen1 = new Yen(2300.0);
-        Dollar dollar1 = new Dollar(50.0);
-        Account account1 = new Account("TrustFund");
-        account1.addCurrency(euro1);
-        account1.addCurrency(yen1);
-        account1.addCurrency(dollar1);
-        account1.recievingCurrency("Euro");
-        account1.recievingToTradeIn(20.00);
+//        Double amount = 0.0;
+//        String cur1 = "Euro";
+//        Euro euro1 = new Euro(23.0);
+//        Yen yen1 = new Yen(2300.0);
+//        Dollar dollar1 = new Dollar(50.0);
+//        Account account1 = new Account("TrustFund");
+//        account1.addCurrency(euro1);
+//        account1.addCurrency(yen1);
+//        account1.addCurrency(dollar1);
+//        account1.toReceivingCurrency("Euro");
+//        account1.ReceivingToTradeIn(20.00);
 }
 
     @Test
     void checkBalance()
     {
-        Double amount = 0.0;
-        String cur1 = "Euro";
-        Euro euro1 = new Euro(23.0);
-        Yen yen1 = new Yen(2300.0);
-        Dollar dollar1 = new Dollar(50.0);
-        Account account1 = new Account("TrustFund");
-        account1.addCurrency(euro1);
-        account1.addCurrency(yen1);
-        account1.addCurrency(dollar1);
-        account1.tradeInCurrency("Euro");
-        account1.recievingCurrency("Yen");
-        account1.recievingToTradeIn(2000.00);
-        account1.checkAndSetBalance();
+//        Double amount = 0.0;
+//        String cur1 = "Euro";
+//        Euro euro1 = new Euro(23.0);
+//        Yen yen1 = new Yen(2300.0);
+//        Dollar dollar1 = new Dollar(50.0);
+//        Account account1 = new Account("TrustFund");
+//        account1.addCurrency(euro1);
+//        account1.addCurrency(yen1);
+//        account1.addCurrency(dollar1);
+//        account1.tradeInCurrency("Euro");
+//        account1.receivingCurrency("Yen");
+//        account1.receivingToTradeIn(2000.00);
+//        account1.checkAndSetBalance();
     }
 }
