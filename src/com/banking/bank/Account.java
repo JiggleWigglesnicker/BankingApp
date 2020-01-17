@@ -34,13 +34,13 @@ public class Account {
 
     // returns the wanted currency using the name of said currency
     public Currency getCurrency(String currencyName){
-        Currency currency = null;
+        Currency currencyHolder = null;
         for (Currency cur : multiCurrenciesList) {
             if (cur.getCurrencyName() == currencyName) {
-                currency = cur;
+                currencyHolder = cur;
             }
         }
-        return currency;
+        return currencyHolder;
     }
 
     //Check if there is enough money in account to afford the money conversion
@@ -54,6 +54,7 @@ public class Account {
         Currency tradeInCurrency  = getCurrency(currencyToTradeIn);
         Currency toReceiveCurrency = getCurrency(currencyToReceive);
         System.out.println(tradeInCurrency);
+
         if(checkIfSufficientFunds(tradeInCurrency,amountToTradeIn)){
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
