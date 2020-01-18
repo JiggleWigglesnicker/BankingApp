@@ -7,44 +7,58 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class AccountHolder {
-    private String nameHolder;
-    private HashSet<Account> accountList = new HashSet<Account>();
-    //TODO: Holder amount moet weg kan worden berekent en worden gereturned
-    //private Double totalHolderAmount = 0.0;
-    private HashMap<String, Double> totalCurrencyList = new HashMap<String, Double>();
-    private HashMap<String, Double> rateList = new HashMap<String,Double>();
 
+    // Name of the accountHolder
+    private String nameHolder;
+
+    // HashSet which contains the Account added to this account holder
+    private HashSet<Account> accountList = new HashSet<Account>();
+
+    //Contains a HashMap of the total amount of currencies divided by currency type
+    private HashMap<String, Double> totalCurrencyList = new HashMap<String, Double>();
+
+    //set account holder name when class is initialized
     public AccountHolder(String name){
         nameHolder = name;
     }
 
+    //gets name of account holder
     public String getHolderName(){
         return nameHolder;
     }
 
-    //TODO: MOET WEG HIER TOTALHOLDERAMOUNT MOET GERETURNED WORDEN IN EEN METHOD
-//    public Double getTotalHolderAmount(){
-//        return totalHolderAmount;
-//    }
-
+    //gets HashSet of accounts in account holder
     public HashSet<Account> getAccountList() {
         return accountList;
     }
 
+    //adds an account to the accountList HashSet
     public void addAccount(Account account){
         accountList.add(account);
     }
 
+    //count how many accounts the account holder has
     public double accountCount(){
         return accountList.size();
     }
 
-    public HashMap<String,Double> getRateList(){
-        return rateList;
-    }
-
+    //gets HashMap of the totalCurrencyList field
     public HashMap<String,Double> getTotalCurrencyList(){
         return totalCurrencyList;
+    }
+
+    //TODO : KAN MISSCHIEN OOOK WEG NIET ZEKER
+    // Gets the rate of a currency using the currency name
+    public Double getRate (String currencyName ){
+        Double rate = 0.0;
+        for(Account account : accountList){
+            if(account.getCurrency(currencyName) != null){
+                rate = account.getCurrency(currencyName).getRate();
+            }else{
+                throw new NullPointerException("Could not get rate of currency type");
+            }
+        }
+        return rate;
     }
 
     //TODO: APARTE METHODES MAKEN ALS HET KAN
@@ -71,28 +85,13 @@ public class AccountHolder {
 
     }
 
-    public void calcTotalAmountHolder(){
-        addUpIndividualAccountCurrencies();
+    // calculates and returns the total combined of money a account holder has in dollars
+    public Double calcTotalAmountHolder(){
         Double totalAmount = 0.0;
         for(Account account : accountList){
-            for(Currency currency : account.getMultiCurrenciesList()){
-                String name = currency.getCurrencyName();
-                Double rate = currency.getRate();
-                rateList.putIfAbsent(name,rate);
-            }
-
+            totalAmount += account.totalAccountAmountInDollars();
         }
-
-        for(Map.Entry<String,Double> entry : totalCurrencyList.entrySet()){
-            for(Map.Entry<String,Double> rateMap : rateList.entrySet()){
-                if(rateMap.getKey() == entry.getKey()){
-                    Double calcDollarAmount = entry.getValue() / rateMap.getValue();
-                    totalAmount += calcDollarAmount;
-                }
-            }
-        }
-        //TODO: returen hier total amount
-        //totalHolderAmount = totalAmount;
+        return totalAmount;
     }
 
 

@@ -33,7 +33,7 @@ public class Account {
         multiCurrenciesList.add(currency);
     }
 
-    // returns the wanted currency using the name of said currency
+    // returns the wanted currency object using the name of said currency
     public Currency getCurrency(String currencyName){
         Currency currency = null;
         for (Currency cur : multiCurrenciesList) {
@@ -47,6 +47,15 @@ public class Account {
     //Check if there is enough money in account to afford the money conversion
     public Boolean checkIfSufficientFunds(Currency currency, Double AmountToTradeIn){
             return currency.getAmount() >= AmountToTradeIn;
+    }
+
+    // Adds up the amount of all the different currencies types into dollars
+    public Double totalAccountAmountInDollars(){
+        Double totalAmount = 0.0;
+        for(Currency currency : multiCurrenciesList){
+            totalAmount += (currency.getAmount() * currency.getRate());
+        }
+        return totalAmount;
     }
 
 
