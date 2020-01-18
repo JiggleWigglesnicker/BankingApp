@@ -47,7 +47,7 @@ public class AccountHolder {
         return totalCurrencyList;
     }
 
-    //TODO : KAN MISSCHIEN OOOK WEG NIET ZEKER
+
     // Gets the rate of a currency using the currency name
     public Double getRate (String currencyName ){
         Double rate = 0.0;
@@ -62,6 +62,7 @@ public class AccountHolder {
     }
 
     //TODO: APARTE METHODES MAKEN ALS HET KAN
+    //Adds up the amount from all the different currencies types and stores it in a HashMap
     public void addUpIndividualAccountCurrencies(){
         HashMap<String, Double> prevAmount = new HashMap<String,Double>();
 

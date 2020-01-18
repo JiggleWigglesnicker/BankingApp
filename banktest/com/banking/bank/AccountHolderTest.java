@@ -1,10 +1,22 @@
-import com.banking.bank.Account;
-import com.banking.bank.AccountHolder;
+package com.banking.bank;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountHolderTest {
+
+    @Test
+    void accountCount() {
+    }
+
+    @Test
+    void getRate() {
+    }
+
+    @Test
+    void calcTotalAmountHolder() {
+    }
 
     @Test
     void addAccount() {

@@ -1,5 +1,5 @@
-import com.banking.bank.AccountHolder;
-import com.banking.bank.BankRecord;
+package com.banking.bank;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +8,7 @@ class BankRecordTest {
 
     @Test
     void addHolder() {
-        AccountHolder holder1 = new AccountHolder("Henk");
+        AccountHolder holder1 = new AccountHolder("Hank");
         AccountHolder holder2 = new AccountHolder("bob");
         AccountHolder holder3 = new AccountHolder("dirk");
         AccountHolder holder4 = new AccountHolder("jingle");
