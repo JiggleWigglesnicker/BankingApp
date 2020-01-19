@@ -28,7 +28,7 @@ public class Main {
         Account account1 = new Account("TrustFund1");
         Account account2 = new Account("TrustFund2");
         Account account3 = new Account("TrustFund3");
-        AccountHolder holder1 = new AccountHolder("Henk");
+        AccountHolder holder1 = new AccountHolder("Plak");
         AccountHolder holder2 = new AccountHolder("bob");
         AccountHolder holder3 = new AccountHolder("Dark");
         BankRecord record = new BankRecord();
