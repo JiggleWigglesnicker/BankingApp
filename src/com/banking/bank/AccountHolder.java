@@ -52,16 +52,12 @@ public class AccountHolder {
     public Double getRate(String currencyName) {
         Double rate = 0.0;
         for (Account account : accountList) {
-            if (account.getCurrency(currencyName) != null) {
                 rate = account.getCurrency(currencyName).getRate();
-            } else {
-                throw new NullPointerException("Could not get rate of currency type");
-            }
         }
+        System.out.println(rate);
         return rate;
     }
 
-    //TODO: APARTE METHODES MAKEN ALS HET KAN
     //Adds up the amount from all the different currencies types and stores it in a HashMap
     public void addUpIndividualAccountCurrencies() {
         HashMap<String, Double> prevAmount = new HashMap<String, Double>();

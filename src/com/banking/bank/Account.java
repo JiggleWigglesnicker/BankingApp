@@ -14,12 +14,12 @@ public class Account {
     private HashSet<Currency> multiCurrenciesList = new HashSet<Currency>();
 
     //set account name when class is initialized
-    public Account(String name){
+    public Account(String name) {
         accountName = name;
     }
 
     //gets accountName
-    public String getAccountName(){
+    public String getAccountName() {
         return accountName;
     }
 
@@ -29,12 +29,12 @@ public class Account {
     }
 
     //adds currencies to the multiCurrenciesList
-    public void addCurrency(Currency currency){
+    public void addCurrency(Currency currency) {
         multiCurrenciesList.add(currency);
     }
 
     // returns the wanted currency object using the name of said currency
-    public Currency getCurrency(String currencyName){
+    public Currency getCurrency(String currencyName) {
         Currency currency = null;
         for (Currency cur : multiCurrenciesList) {
             if (cur.getCurrencyName() == currencyName) {
@@ -45,14 +45,14 @@ public class Account {
     }
 
     //Check if there is enough money in account to afford the money conversion
-    public Boolean checkIfSufficientFunds(Currency currency, Double AmountToTradeIn){
-            return currency.getAmount() >= AmountToTradeIn;
+    public Boolean checkIfSufficientFunds(Currency currency, Double AmountToTradeIn) {
+        return currency.getAmount() >= AmountToTradeIn;
     }
 
     // Adds up the amount of all the different currencies types into dollars
-    public Double totalAccountAmountInDollars(){
+    public Double totalAccountAmountInDollars() {
         Double totalAmount = 0.0;
-        for(Currency currency : multiCurrenciesList){
+        for (Currency currency : multiCurrenciesList) {
             totalAmount += (currency.getAmount() * currency.getRate());
         }
         return totalAmount;
@@ -60,15 +60,15 @@ public class Account {
 
 
     //converts and sets the amount from one currency type to another
-    public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn){
-        if(checkIfSufficientFunds(tradeInCurrency,amountToTradeIn)){
+    public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn) {
+        if (checkIfSufficientFunds(tradeInCurrency, amountToTradeIn)) {
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
             tradeInCurrency.setAmount(newAmount);
             newAmount = toReceiveCurrency.getAmount() + toReceiveCurrency.getRate() * amountToTradeIn;
             toReceiveCurrency.setAmount(newAmount);
 
-        }else{
+        } else {
             throw new ArithmeticException("Not enough funds for conversion");
         }
     }

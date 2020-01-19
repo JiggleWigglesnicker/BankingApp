@@ -1,5 +1,6 @@
 package com.banking.bank;
 
+import com.banking.currency.Currency;
 import com.banking.currency.Euro;
 import com.banking.currency.Yen;
 import org.junit.jupiter.api.Test;
@@ -39,5 +40,16 @@ class AccountTest {
         account1.addCurrency(euro2);
         var setSize = account1.getMultiCurrenciesList().size();
         assertEquals(2, setSize);
+    }
+
+    @Test
+    void getCurrency() {
+        Euro euro1 = new Euro(23.0);
+        Euro euro2 = new Euro(23.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(euro2);
+        account1.getCurrency("Euro");
+        assertEquals("Euro",account1.getCurrency("Euro").getCurrencyName());
     }
 }
