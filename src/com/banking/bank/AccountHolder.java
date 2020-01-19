@@ -18,12 +18,12 @@ public class AccountHolder {
     private HashMap<String, Double> totalCurrencyList = new HashMap<String, Double>();
 
     //set account holder name when class is initialized
-    public AccountHolder(String name){
+    public AccountHolder(String name) {
         nameHolder = name;
     }
 
     //gets name of account holder
-    public String getHolderName(){
+    public String getHolderName() {
         return nameHolder;
     }
 
@@ -33,28 +33,28 @@ public class AccountHolder {
     }
 
     //adds an account to the accountList HashSet
-    public void addAccount(Account account){
+    public void addAccount(Account account) {
         accountList.add(account);
     }
 
     //count how many accounts the account holder has
-    public double accountCount(){
+    public int accountCount() {
         return accountList.size();
     }
 
     //gets HashMap of the totalCurrencyList field
-    public HashMap<String,Double> getTotalCurrencyList(){
+    public HashMap<String, Double> getTotalCurrencyList() {
         return totalCurrencyList;
     }
 
 
     // Gets the rate of a currency using the currency name
-    public Double getRate (String currencyName ){
+    public Double getRate(String currencyName) {
         Double rate = 0.0;
-        for(Account account : accountList){
-            if(account.getCurrency(currencyName) != null){
+        for (Account account : accountList) {
+            if (account.getCurrency(currencyName) != null) {
                 rate = account.getCurrency(currencyName).getRate();
-            }else{
+            } else {
                 throw new NullPointerException("Could not get rate of currency type");
             }
         }
@@ -63,23 +63,23 @@ public class AccountHolder {
 
     //TODO: APARTE METHODES MAKEN ALS HET KAN
     //Adds up the amount from all the different currencies types and stores it in a HashMap
-    public void addUpIndividualAccountCurrencies(){
-        HashMap<String, Double> prevAmount = new HashMap<String,Double>();
+    public void addUpIndividualAccountCurrencies() {
+        HashMap<String, Double> prevAmount = new HashMap<String, Double>();
 
-        for(Account account : accountList){
-            for(Currency currency : account.getMultiCurrenciesList()){
+        for (Account account : accountList) {
+            for (Currency currency : account.getMultiCurrenciesList()) {
                 String nameCurrency = currency.getCurrencyName();
                 Double amountCurrency = currency.getAmount();
                 prevAmount.put(nameCurrency, amountCurrency);
             }
 
-            if(totalCurrencyList.isEmpty()) {
-                for(Map.Entry<String,Double> entry : prevAmount.entrySet()){
-                    totalCurrencyList.put(entry.getKey(),entry.getValue());
+            if (totalCurrencyList.isEmpty()) {
+                for (Map.Entry<String, Double> entry : prevAmount.entrySet()) {
+                    totalCurrencyList.put(entry.getKey(), entry.getValue());
                 }
-            }else{
-                for(Map.Entry<String,Double> entry : prevAmount.entrySet()){
-                    totalCurrencyList.put(entry.getKey(),totalCurrencyList.get(entry.getKey()) +entry.getValue() );
+            } else {
+                for (Map.Entry<String, Double> entry : prevAmount.entrySet()) {
+                    totalCurrencyList.put(entry.getKey(), totalCurrencyList.get(entry.getKey()) + entry.getValue());
                 }
             }
         }
@@ -87,9 +87,9 @@ public class AccountHolder {
     }
 
     // calculates and returns the total combined of money a account holder has in dollars
-    public Double calcTotalAmountHolder(){
+    public Double calcTotalAmountHolder() {
         Double totalAmount = 0.0;
-        for(Account account : accountList){
+        for (Account account : accountList) {
             totalAmount += account.totalAccountAmountInDollars();
         }
         return totalAmount;
