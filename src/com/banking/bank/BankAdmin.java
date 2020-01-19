@@ -20,7 +20,6 @@ public class BankAdmin {
             bankMoney += holder.calcTotalAmountHolder();
             rate = holder.getRate(currency);
         }
-
         System.out.println("The bank has " + df.format(bankMoney * rate) + " worth of " + currency);
     }
 
@@ -31,19 +30,17 @@ public class BankAdmin {
         return individualTotal.toString();
     }
 
-    // shows poorest account holder
+    //shows poorest account holder
     public void poorestAccount() {
         DecimalFormat df = new DecimalFormat("0.00");
         String holderName = null;
         double holderTotalMoney = 0.0;
 
         for (AccountHolder holder : bankRecord.getAccountHolderList()) {
-            if (holderTotalMoney == 0.0){
+            if (holderTotalMoney == 0.0) {
                 holderName = holder.getHolderName();
                 holderTotalMoney = holder.calcTotalAmountHolder();
-            }
-            else if(holder.calcTotalAmountHolder() < holderTotalMoney)
-            {
+            } else if (holder.calcTotalAmountHolder() < holderTotalMoney) {
                 holderName = holder.getHolderName();
                 holderTotalMoney = holder.calcTotalAmountHolder();
             }
@@ -55,18 +52,19 @@ public class BankAdmin {
     //shows richest account Holder
     public void richestAccount() {
         DecimalFormat df = new DecimalFormat("0.00");
-            String holderName = null;
-            double holderTotalMoney = 0.0;
-            for (AccountHolder holder : bankRecord.getAccountHolderList()) {
-                if (holder.calcTotalAmountHolder() > holderTotalMoney) {
-                    holderName = holder.getHolderName();
-                    holderTotalMoney = holder.calcTotalAmountHolder();
-                }
+        String holderName = null;
+        double holderTotalMoney = 0.0;
+        for (AccountHolder holder : bankRecord.getAccountHolderList()) {
+            if (holder.calcTotalAmountHolder() > holderTotalMoney) {
+                holderName = holder.getHolderName();
+                holderTotalMoney = holder.calcTotalAmountHolder();
             }
-            System.out.println(holderName + " $" + df.format(holderTotalMoney));
+        }
+        System.out.println(holderName + " $" + df.format(holderTotalMoney));
     }
 
-    // shows which account holder has the most accounts
+
+    //shows which account holder has the most accounts
     public void showMostAccounts() {
         String tempName = "";
         int tempAccountCount = 0;

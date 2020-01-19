@@ -17,9 +17,8 @@ class AccountTest {
         Euro euro1 = new Euro(23.0);
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
-        Boolean enoughMoney = account1.checkIfSufficientFunds(euro1,23.0);
+        Boolean enoughMoney = account1.checkIfSufficientFunds(euro1, 23.0);
         assertTrue(enoughMoney);
-
     }
 
     // test if conversion amount of one currency type to another is executed properly
@@ -30,10 +29,9 @@ class AccountTest {
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);
-        account1.conversion(euro1,yen1, 15.0);
-        assertEquals(8 , account1.getCurrency("Euro").getAmount());
-        assertEquals(1445.0 , account1.getCurrency("Yen").getAmount());
-
+        account1.conversion(euro1, yen1, 15.0);
+        assertEquals(8, account1.getCurrency("Euro").getAmount());
+        assertEquals(1445.0, account1.getCurrency("Yen").getAmount());
     }
 
     // test if currency is properly added to account
@@ -57,7 +55,7 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(euro2);
         account1.getCurrency("Euro");
-        assertEquals("Euro",account1.getCurrency("Euro").getCurrencyName());
+        assertEquals("Euro", account1.getCurrency("Euro").getCurrencyName());
     }
 
     // test if the total amount of an account in different currencies is returned in dollars
@@ -69,8 +67,7 @@ class AccountTest {
         account1.addCurrency(euro1);
         account1.addCurrency(yen1);
         account1.totalAccountAmountInDollars();
-        Double amount =  account1.totalAccountAmountInDollars();
-        assertEquals(41.63,amount);
-
+        Double amount = account1.totalAccountAmountInDollars();
+        assertEquals(41.63, amount);
     }
 }

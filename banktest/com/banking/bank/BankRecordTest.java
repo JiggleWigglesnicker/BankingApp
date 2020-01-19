@@ -19,6 +19,6 @@ class BankRecordTest {
         record.addHolder(holder3);
         record.addHolder(holder4);
         int sizeSet = record.getAccountHolderList().size();
-        assertEquals(4,sizeSet);
+        assertEquals(4, sizeSet);
     }
 }

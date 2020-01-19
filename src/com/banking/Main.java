@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         //Initialization of objects
         Euro euro1 = new Euro(23.0);
-        Dollar dollar1 = new Dollar( 50.0);
+        Dollar dollar1 = new Dollar(50.0);
         Yen yen1 = new Yen(35.5);
         Euro euro2 = new Euro(23.0);
         Dollar dollar2 = new Dollar(50.0);
@@ -70,7 +70,7 @@ public class Main {
                     " \n-Show Most Accounts \n-Exit\n");
 
             String action = "";
-            while(action != "-Exit") {
+            while (action != "-Exit") {
                 action = reader.readLine();
 
                 switch (action) {
@@ -96,12 +96,14 @@ public class Main {
                     case "-Show Most Accounts":
                         admin.showMostAccounts();
                         break;
-                    case "-Exit": System.exit(1);
+                    case "-Exit":
+                        System.exit(1);
                         break;
-                    default: System.out.println("Invalid Command");
+                    default:
+                        System.out.println("Invalid Command");
                 }
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("line cant be read");
         }
     }

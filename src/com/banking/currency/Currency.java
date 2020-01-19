@@ -5,7 +5,7 @@ public abstract class Currency {
     private Double amount;
     protected Double rate;
 
-    Currency(Double amount){
+    Currency(Double amount) {
         this.amount = amount;
     }
 

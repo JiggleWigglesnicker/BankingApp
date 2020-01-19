@@ -36,8 +36,8 @@ class AccountHolderTest {
         AccountHolder holder1 = new AccountHolder("honk");
         holder1.addAccount(account1);
         holder1.addAccount(account2);
-        Double rate =  holder1.getRate("Euro");
-        assertEquals(0.81, rate );
+        Double rate = holder1.getRate("Euro");
+        assertEquals(0.81, rate);
     }
 
     //test of total amount of all accounts is properly returned in dollars
@@ -52,8 +52,7 @@ class AccountHolderTest {
         AccountHolder holder1 = new AccountHolder("honk");
         holder1.addAccount(account1);
         holder1.addAccount(account2);
-        assertEquals(41.63,holder1.calcTotalAmountHolder() );
-
+        assertEquals(41.63, holder1.calcTotalAmountHolder());
     }
 
     //test of accounts are added properly
@@ -69,6 +68,6 @@ class AccountHolderTest {
         holder1.addAccount(account3);
         holder1.addAccount(account4);
         var setSize = holder1.getAccountList().size();
-        assertEquals(4,setSize);
+        assertEquals(4, setSize);
     }
 }
