@@ -77,7 +77,7 @@ public class BankAdmin {
                 tempName = acc.getHolderName();
             }
         }
-        System.out.println(tempName + " " + tempAccountCount);
+        System.out.println(tempName + " heeft " + tempAccountCount + " accounts");
     }
 }
 
