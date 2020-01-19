@@ -31,7 +31,6 @@ public class BankAdmin {
         return individualTotal.toString();
     }
 
-    // TODO: BIJ TESTEN KIJKEN OF THE EERSTE IF STATEMENT WEG KAN
     // shows poorest account holder
     public void poorestAccount() {
         DecimalFormat df = new DecimalFormat("0.00");
@@ -49,7 +48,7 @@ public class BankAdmin {
                 holderTotalMoney = holder.calcTotalAmountHolder();
             }
         }
-        String holderMoney = holderName + " " + df.format(holderTotalMoney);
+        String holderMoney = holderName + " $" + df.format(holderTotalMoney);
         System.out.println(holderMoney);
     }
 
@@ -64,7 +63,7 @@ public class BankAdmin {
                     holderTotalMoney = holder.calcTotalAmountHolder();
                 }
             }
-            System.out.println(holderName + " " + df.format(holderTotalMoney));
+            System.out.println(holderName + " $" + df.format(holderTotalMoney));
     }
 
     // shows which account holder has the most accounts
