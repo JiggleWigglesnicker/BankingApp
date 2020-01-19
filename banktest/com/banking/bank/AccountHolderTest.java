@@ -1,5 +1,6 @@
 package com.banking.bank;
 
+import com.banking.currency.Dollar;
 import com.banking.currency.Euro;
 import com.banking.currency.Yen;
 import org.junit.jupiter.api.Test;
@@ -40,8 +41,8 @@ class AccountHolderTest {
     //TODO: telt niet goed op
     @Test
     void calcTotalAmountHolder() {
-        Euro euro1 = new Euro(230.0);
-        Yen yen1 = new Yen(230.0);
+        Euro euro1 = new Euro(23.0);
+        Dollar yen1 = new Dollar(23.0);
         Account account1 = new Account("TrustFund1");
         Account account2 = new Account("TrustFund2");
         account1.addCurrency(euro1);
