@@ -11,7 +11,6 @@ public class BankRecord {
     private HashMap<String, Double> recordTotalIndividualCurrencies = new HashMap<String, Double>();
 
     public BankRecord() {
-
     }
 
     // gets accountholder Hashset
@@ -38,10 +37,7 @@ public class BankRecord {
                 } else {
                     recordTotalIndividualCurrencies.put(entry.getKey(), recordTotalIndividualCurrencies.get(entry.getKey()) + entry.getValue());
                 }
-
             }
-
         }
     }
-
 }

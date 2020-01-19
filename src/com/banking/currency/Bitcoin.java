@@ -8,7 +8,6 @@ public class Bitcoin extends Currency implements CryptoRegulator {
         virtualLimit = 9000.0;
         this.rate = 0.3;
         this.currencyName = "Bitcoin";
-
     }
 
     public Double getCryptoLimit(){

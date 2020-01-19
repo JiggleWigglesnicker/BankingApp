@@ -7,5 +7,4 @@ public class Euro extends Currency {
         this.rate = 0.81;
         this.currencyName = "Euro";
     }
-
 }

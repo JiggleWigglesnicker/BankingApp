@@ -7,5 +7,4 @@ public class Yen extends Currency {
         this.rate = 0.01;
         this.currencyName = "Yen";
     }
-
 }

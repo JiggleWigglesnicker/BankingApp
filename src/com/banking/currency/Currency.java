@@ -32,7 +32,4 @@ public abstract class Currency {
     public Double getRate() {
         return rate;
     }
-
-
-
 }
