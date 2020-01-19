@@ -57,7 +57,6 @@ public class AccountHolder {
             }
 
         }
-        System.out.println("\n" + rate);
         return rate;
     }
 
