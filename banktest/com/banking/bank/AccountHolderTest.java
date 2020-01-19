@@ -33,9 +33,11 @@ class AccountHolderTest {
         AccountHolder holder1 = new AccountHolder("honk");
         holder1.addAccount(account1);
         holder1.addAccount(account2);
-        assertEquals(0.81, holder1.getRate("Euro"));
+        Double rate =  holder1.getRate("Euro");
+        assertEquals(0.81, rate );
     }
 
+    //TODO: telt niet goed op
     @Test
     void calcTotalAmountHolder() {
         Euro euro1 = new Euro(230.0);

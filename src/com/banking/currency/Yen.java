@@ -4,7 +4,7 @@ public class Yen extends Currency {
 
     public Yen(Double amount){
         super(amount);
-        this.rate = 110.0;
+        this.rate = 121.0;
         this.currencyName = "Yen";
     }
 

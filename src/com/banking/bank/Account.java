@@ -4,7 +4,6 @@ import com.banking.currency.Currency;
 
 import java.util.HashSet;
 
-
 public class Account {
 
     //name of account
@@ -53,7 +52,7 @@ public class Account {
     public Double totalAccountAmountInDollars() {
         Double totalAmount = 0.0;
         for (Currency currency : multiCurrenciesList) {
-            totalAmount += (currency.getAmount() * currency.getRate());
+            totalAmount += (currency.getAmount() / currency.getRate());
         }
         return totalAmount;
     }
