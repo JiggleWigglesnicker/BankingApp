@@ -60,6 +60,7 @@ public class AccountHolder {
         return rate;
     }
 
+
     //Adds up the amount from all the different currencies types and stores it in a HashMap
     public void addUpIndividualAccountCurrencies() {
         HashMap<String, Double> prevAmount = new HashMap<String, Double>();
