@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
 
+    // test if checkIfSufficientFunds properly check if there are enough funds in a account
     @Test
     void checkIfSufficientFunds() {
         Euro euro1 = new Euro(23.0);
@@ -21,6 +22,7 @@ class AccountTest {
 
     }
 
+    // test if conversion amount of one currency type to another is executed properly
     @Test
     void conversion() {
         Euro euro1 = new Euro(23.0);
@@ -34,6 +36,7 @@ class AccountTest {
 
     }
 
+    // test if currency is properly added to account
     @Test
     void addCurrency() {
         Euro euro1 = new Euro(23.0);
@@ -45,6 +48,7 @@ class AccountTest {
         assertEquals(2, setSize);
     }
 
+    // test if correct currency is returned
     @Test
     void getCurrency() {
         Euro euro1 = new Euro(23.0);
@@ -56,6 +60,7 @@ class AccountTest {
         assertEquals("Euro",account1.getCurrency("Euro").getCurrencyName());
     }
 
+    // test if the total amount of an account in different currencies is returned in dollars
     @Test
     void totalAccountAmountInDollars() {
         Euro euro1 = new Euro(23.0);

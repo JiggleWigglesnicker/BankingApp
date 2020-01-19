@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BankRecordTest {
 
+    //check if holder are added to bank record
     @Test
     void addHolder() {
         AccountHolder holder1 = new AccountHolder("Hank");

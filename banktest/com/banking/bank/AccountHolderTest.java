@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountHolderTest {
 
+    //test if accounts are properly counted and return
     @Test
     void accountCount() {
         Account account1 = new Account("TrustFund1");
@@ -23,6 +24,7 @@ class AccountHolderTest {
         assertEquals(4, holder1.accountCount());
     }
 
+    // gets the rate of the correct currency type
     @Test
     void getRate() {
         Euro euro1 = new Euro(230.0);
@@ -38,6 +40,7 @@ class AccountHolderTest {
         assertEquals(0.81, rate );
     }
 
+    //test of total amount of all accounts is properly returned in dollars
     @Test
     void calcTotalAmountHolder() {
         Euro euro1 = new Euro(23.0);
@@ -53,6 +56,7 @@ class AccountHolderTest {
 
     }
 
+    //test of accounts are added properly
     @Test
     void addAccount() {
         Account account1 = new Account("TrustFund1");
