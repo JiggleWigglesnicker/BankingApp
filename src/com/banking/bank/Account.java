@@ -54,11 +54,10 @@ public class Account {
         Double totalAmount = 0.0;
         for (Currency currency : multiCurrenciesList) {
             totalAmount += (currency.getAmount() * currency.getRate());
-            //System.out.println("\n" +totalAmount);
+
         }
         return totalAmount;
     }
-
 
     //converts and sets the amount from one currency type to another
     public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn) {
@@ -66,7 +65,7 @@ public class Account {
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
             tradeInCurrency.setAmount(newAmount);
-            newAmount = toReceiveCurrency.getAmount() + toReceiveCurrency.getRate() / amountToTradeIn;
+            newAmount = toReceiveCurrency.getAmount() + (tradeInCurrency.getRate() * amountToTradeIn) / toReceiveCurrency.getRate();
             toReceiveCurrency.setAmount(newAmount);
 
         } else {

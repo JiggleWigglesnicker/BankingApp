@@ -30,7 +30,7 @@ class AccountTest {
         account1.addCurrency(yen1);
         account1.conversion(euro1,yen1, 15.0);
         assertEquals(8 , account1.getCurrency("Euro").getAmount());
-        assertEquals(8 , account1.getCurrency("Yen").getAmount());
+        assertEquals(1445.0 , account1.getCurrency("Yen").getAmount());
 
     }
 
@@ -58,7 +58,6 @@ class AccountTest {
 
     @Test
     void totalAccountAmountInDollars() {
-        DecimalFormat df = new DecimalFormat("0.00");
         Euro euro1 = new Euro(23.0);
         Yen yen1 = new Yen(2300.0);
         Account account1 = new Account("TrustFund");
@@ -66,7 +65,7 @@ class AccountTest {
         account1.addCurrency(yen1);
         account1.totalAccountAmountInDollars();
         Double amount =  account1.totalAccountAmountInDollars();
-        assertEquals(46.46,amount);
+        assertEquals(41.63,amount);
 
     }
 }
