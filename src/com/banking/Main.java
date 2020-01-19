@@ -51,6 +51,9 @@ public class Main {
         holder1.calcTotalAmountHolder();
         holder2.calcTotalAmountHolder();
         holder3.calcTotalAmountHolder();
+        holder1.addUpIndividualAccountCurrencies();
+        holder2.addUpIndividualAccountCurrencies();
+        holder3.addUpIndividualAccountCurrencies();
         record.addHolder(holder1);
         record.addHolder(holder2);
         record.addHolder(holder3);
