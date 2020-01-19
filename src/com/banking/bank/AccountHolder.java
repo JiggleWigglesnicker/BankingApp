@@ -47,7 +47,6 @@ public class AccountHolder {
         return totalCurrencyList;
     }
 
-
     // Gets the rate of a currency using the currency name
     public Double getRate(String currencyName) {
         Double rate = 0.0;
@@ -60,7 +59,6 @@ public class AccountHolder {
         return rate;
     }
 
-
     //Adds up the amount from all the different currencies types and stores it in a HashMap
     public void addUpIndividualAccountCurrencies() {
         HashMap<String, Double> prevAmount = new HashMap<String, Double>();
@@ -71,7 +69,6 @@ public class AccountHolder {
                 Double amountCurrency = currency.getAmount();
                 prevAmount.put(nameCurrency, amountCurrency);
             }
-
             if (totalCurrencyList.isEmpty()) {
                 for (Map.Entry<String, Double> entry : prevAmount.entrySet()) {
                     totalCurrencyList.put(entry.getKey(), entry.getValue());
@@ -82,7 +79,6 @@ public class AccountHolder {
                 }
             }
         }
-
     }
 
     // calculates and returns the total combined of money a account holder has in dollars
@@ -93,6 +89,4 @@ public class AccountHolder {
         }
         return totalAmount;
     }
-
-
 }

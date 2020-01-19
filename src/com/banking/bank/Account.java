@@ -54,7 +54,6 @@ public class Account {
         Double totalAmount = 0.0;
         for (Currency currency : multiCurrenciesList) {
             totalAmount += (currency.getAmount() * currency.getRate());
-
         }
         return totalAmount;
     }
@@ -67,7 +66,6 @@ public class Account {
             tradeInCurrency.setAmount(newAmount);
             newAmount = toReceiveCurrency.getAmount() + (tradeInCurrency.getRate() * amountToTradeIn) / toReceiveCurrency.getRate();
             toReceiveCurrency.setAmount(newAmount);
-
         } else {
             throw new ArithmeticException("Not enough funds for conversion");
         }
