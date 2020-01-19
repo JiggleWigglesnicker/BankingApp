@@ -1,10 +1,10 @@
 package com.banking.currency;
-// TODO: Currency name vast zetten, rate vastzetten. Amount bij account toevoegen
+
 public class Yen extends Currency {
 
     public Yen(Double amount){
         super(amount);
-        this.rate = 121.0;
+        this.rate = 0.0121;
         this.currencyName = "Yen";
     }
 

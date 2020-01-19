@@ -5,6 +5,8 @@ import com.banking.currency.Euro;
 import com.banking.currency.Yen;
 import org.junit.jupiter.api.Test;
 
+import java.text.DecimalFormat;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -28,6 +30,7 @@ class AccountTest {
         account1.addCurrency(yen1);
         account1.conversion(euro1,yen1, 15.0);
         assertEquals(8 , account1.getCurrency("Euro").getAmount());
+        assertEquals(8 , account1.getCurrency("Yen").getAmount());
 
     }
 
@@ -51,5 +54,19 @@ class AccountTest {
         account1.addCurrency(euro2);
         account1.getCurrency("Euro");
         assertEquals("Euro",account1.getCurrency("Euro").getCurrencyName());
+    }
+
+    @Test
+    void totalAccountAmountInDollars() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        Euro euro1 = new Euro(23.0);
+        Yen yen1 = new Yen(2300.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.totalAccountAmountInDollars();
+        Double amount =  account1.totalAccountAmountInDollars();
+        assertEquals(46.46,amount);
+
     }
 }

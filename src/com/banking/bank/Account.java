@@ -2,6 +2,7 @@ package com.banking.bank;
 
 import com.banking.currency.Currency;
 
+
 import java.util.HashSet;
 
 public class Account {
@@ -52,7 +53,8 @@ public class Account {
     public Double totalAccountAmountInDollars() {
         Double totalAmount = 0.0;
         for (Currency currency : multiCurrenciesList) {
-            totalAmount += (currency.getAmount() / currency.getRate());
+            totalAmount += (currency.getAmount() * currency.getRate());
+            //System.out.println("\n" +totalAmount);
         }
         return totalAmount;
     }
@@ -64,7 +66,7 @@ public class Account {
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
             tradeInCurrency.setAmount(newAmount);
-            newAmount = toReceiveCurrency.getAmount() + toReceiveCurrency.getRate() * amountToTradeIn;
+            newAmount = toReceiveCurrency.getAmount() + toReceiveCurrency.getRate() / amountToTradeIn;
             toReceiveCurrency.setAmount(newAmount);
 
         } else {
