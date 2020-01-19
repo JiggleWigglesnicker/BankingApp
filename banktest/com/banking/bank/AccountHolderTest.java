@@ -38,11 +38,10 @@ class AccountHolderTest {
         assertEquals(0.81, rate );
     }
 
-    //TODO: telt niet goed op
     @Test
     void calcTotalAmountHolder() {
         Euro euro1 = new Euro(23.0);
-        Dollar yen1 = new Dollar(23.0);
+        Yen yen1 = new Yen(2300.0);
         Account account1 = new Account("TrustFund1");
         Account account2 = new Account("TrustFund2");
         account1.addCurrency(euro1);
@@ -50,7 +49,7 @@ class AccountHolderTest {
         AccountHolder holder1 = new AccountHolder("honk");
         holder1.addAccount(account1);
         holder1.addAccount(account2);
-        assertEquals(2300.0,holder1.calcTotalAmountHolder() );
+        assertEquals(41.63,holder1.calcTotalAmountHolder() );
 
     }
 

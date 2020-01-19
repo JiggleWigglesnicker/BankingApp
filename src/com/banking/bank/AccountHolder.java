@@ -52,10 +52,12 @@ public class AccountHolder {
     public Double getRate(String currencyName) {
         Double rate = 0.0;
         for (Account account : accountList) {
-            rate = account.getCurrency(currencyName).getRate();
-            System.out.println("\n" +rate);
+            if (account.getCurrency(currencyName) != null) {
+                rate = account.getCurrency(currencyName).getRate();
+            }
+
         }
-        System.out.println("\n" +rate);
+        System.out.println("\n" + rate);
         return rate;
     }
 
