@@ -7,12 +7,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-
 class MoneyExceptionTest {
 
     // If not enough funds are available for conversion throws MoneyException
     @Test
-    void testMoneyException(){
+    void testMoneyException() {
         Assertions.assertThrows(MoneyException.class, () -> {
             Euro euro1 = new Euro(3.0);
             Yen yen1 = new Yen(230.0);
@@ -21,7 +20,5 @@ class MoneyExceptionTest {
             account1.addCurrency(yen1);
             account1.conversion(euro1, yen1, 15.0);
         });
-
     }
-
 }

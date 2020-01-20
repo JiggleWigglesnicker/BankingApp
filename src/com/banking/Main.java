@@ -59,7 +59,6 @@ public class Main {
         record.addHolder(holder3);
         record.calcRecordTotalIndividualCurrencies();
 
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("||==================================================||" +
