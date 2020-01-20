@@ -1,11 +1,9 @@
 package com.banking.bank;
 
-import com.banking.currency.Currency;
 import com.banking.currency.Euro;
 import com.banking.currency.Yen;
 import org.junit.jupiter.api.Test;
-
-import java.text.DecimalFormat;
+import com.banking.exception.MoneyException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,8 +21,8 @@ class AccountTest {
 
     // test if conversion amount of one currency type to another is executed properly
     @Test
-    void conversion() {
-        Euro euro1 = new Euro(23.0);
+    void conversion() throws MoneyException {
+        Euro euro1 = new Euro(12.0);
         Yen yen1 = new Yen(230.0);
         Account account1 = new Account("TrustFund");
         account1.addCurrency(euro1);
@@ -32,6 +30,20 @@ class AccountTest {
         account1.conversion(euro1, yen1, 15.0);
         assertEquals(8, account1.getCurrency("Euro").getAmount());
         assertEquals(1445.0, account1.getCurrency("Yen").getAmount());
+    }
+
+    @Test
+    void moneyExceptionTest() throws MoneyException {
+        Euro euro1 = new Euro(3.0);
+        Yen yen1 = new Yen(230.0);
+        Account account1 = new Account("TrustFund");
+        account1.addCurrency(euro1);
+        account1.addCurrency(yen1);
+        account1.conversion(euro1, yen1, 15.0);
+        MoneyException moneyException = new MoneyException("Not enough funds for conversion");
+        String expectedMessage = "Not enough funds for conversion";
+        String actualMessage = moneyException.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     // test if currency is properly added to account

@@ -1,5 +1,6 @@
 package com.banking.bank;
 
+import com.banking.exception.MoneyException;
 import com.banking.currency.Currency;
 
 
@@ -59,7 +60,8 @@ public class Account {
     }
 
     //converts and sets the amount from one currency type to another
-    public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn) {
+    public void conversion(Currency tradeInCurrency, Currency toReceiveCurrency, Double amountToTradeIn)throws MoneyException {
+
         if (checkIfSufficientFunds(tradeInCurrency, amountToTradeIn)) {
 
             Double newAmount = tradeInCurrency.getAmount() - amountToTradeIn;
@@ -67,7 +69,7 @@ public class Account {
             newAmount = toReceiveCurrency.getAmount() + (tradeInCurrency.getRate() * amountToTradeIn) / toReceiveCurrency.getRate();
             toReceiveCurrency.setAmount(newAmount);
         } else {
-            throw new ArithmeticException("Not enough funds for conversion");
+            throw new MoneyException("Not enough funds for conversion");
         }
     }
 }
